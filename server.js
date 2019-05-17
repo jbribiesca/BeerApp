@@ -2,7 +2,6 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 
-
 var db = require("./models");
 
 var app = express();
@@ -22,12 +21,12 @@ var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 
 // Routes
-// require("./routes/index-apiRoutes")(app);
-// require("./routes/index-htmlRoutes")(app);
+require("./routes/index-apiRoutes")(app);
+require("./routes/index-htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
-// If running a test, set syncOptions.force to true
+// If running a test, set syncOptions.force to truever
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;

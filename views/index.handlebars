@@ -31,7 +31,9 @@
         <div class="collapse" id="signUp">
           <div class="card card-body">
             <p>Burp! sign up</p>
-            <form method="post" class="needs-validation" novalidate>
+
+            {{!-- Form and post to api --}}
+            <form action="/api/users" method="post" class="needs-validation" novalidate>
               <div class="form-row align-items-center">
                 <div class="form-group col-md-3">
                   <label class="control-label" for="date">Please enter your Birthday</label>

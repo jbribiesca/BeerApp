@@ -1,7 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app) {
-
   // Get all users
   app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(dbUsers) {
@@ -17,7 +16,7 @@ module.exports = function(app) {
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
-      zip_code: req.body.zip_code
+      zip: req.body.zip_code
     }).then(function(dbUsers) {
       res.json(dbUsers);
     });
