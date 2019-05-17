@@ -4,8 +4,8 @@ module.exports = function(app) {
 
   // Get all beers
   app.get("/api/beers", function(req, res) {
-    db.Beer.findAll({}).then(function(dbbeers) {
-      res.json(dbbeers);
+    db.Beer.findAll({}).then(function(dbBeer) {
+      res.json(dbBeer);
     });
   });
 
