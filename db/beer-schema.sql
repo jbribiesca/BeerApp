@@ -18,6 +18,9 @@ CREATE TABLE beers (
     -- Creates a decimal value for the alcohol blood volume percentage that cannot contain a null value
     abv DECIMAL(2 , 1 ) NOT NULL,
 
+    -- Creates an integer for the IBU that cannot contain a null value
+    ibu INT(3) NOT NULL,
+
     -- Creates a string with the beer type that cannot contain a null value
     beer_type VARCHAR(255) NOT NULL,
 

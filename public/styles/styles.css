@@ -1,12 +1,8 @@
 body{
   background-image: url(https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   background-size: cover;
-  background-repeat: no-repeat;
- 
-  
+  background-repeat: no-repeat; 
 }
-
-
 
 .list-group-item {
   line-height: 2.5;
@@ -36,15 +32,60 @@ body{
   text-align: center;
 }
 
-.form-inline{
-  padding-left: 180px;
+/* Dynamic search form styling */
+.searchBar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #353b48;
+  border-radius: 30px;
+  padding: 10px;
 }
 
+.search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 0;
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+}
+
+.searchBar:hover>.search_input {
+  padding: 0 10px;
+  width: 450px;
+  caret-color: #F15F22;
+  transition: width 0.4s linear;
+}
+
+.searchBar:hover>.search_icon {
+  background: white;
+  color: #F15F22;
+}
+
+.search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #F15F22;
+}
+
+/* End dynamic search style */
 
 
 @media (max-width: 576px) { 
-  .form-inline{
-    width: 100%;
-    padding-left: 0px;
+
+  .searchBar:hover>.search_input {
+    padding: 0 10px;
+    width: 300px;
+    caret-color: #F15F22;
+    transition: width 0.4s linear;
   }
+
 }
