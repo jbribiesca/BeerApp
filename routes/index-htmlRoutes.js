@@ -3,16 +3,14 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.render("index", {
-        users: dbUser
-      });
+    db.User.findAll({}).then(function() {
+      res.render("index");
     });
   });
 
   app.get("/user", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
-      res.render("user", {
+      res.render("all-user", {
         users: dbUser
       });
     });
