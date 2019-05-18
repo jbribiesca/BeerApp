@@ -1,3 +1,3 @@
 exports.brewery = {
-  key: process.env.BREWAPIKEY
+    key: process.env.BREWAPIKEY
 };
