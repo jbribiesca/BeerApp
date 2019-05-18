@@ -5,7 +5,14 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.render("index", {
-        msg: "Welcome!",
+        users: dbUser
+      });
+    });
+  });
+
+  app.get("/user", function(req, res) {
+    db.User.findAll({}).then(function(dbUser) {
+      res.render("user", {
         users: dbUser
       });
     });
@@ -21,7 +28,7 @@ module.exports = function(app) {
   // });
 
   // Render 404 page for any unmatched routes
-//   app.get("*", function(req, res) {
-//     res.render("404");
-//   });
+  //   app.get("*", function(req, res) {
+  //     res.render("404");
+  //   });
 };
