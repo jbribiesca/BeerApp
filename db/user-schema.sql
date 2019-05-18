@@ -13,7 +13,7 @@ CREATE TABLE users (
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    u_password VARCHAR(32) NOT NULL, 
+    password VARCHAR(32) NOT NULL, 
     zip INTEGER(5) NOT NULL, 
     birthday DATE NOT NULL,
     PRIMARY KEY (id)

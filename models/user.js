@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-    u_password: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -33,10 +33,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     birthday: {
       type: DataTypes.DATEONLY,
-      // allowNull: false,
-      // validate: {
-      //   isDate: true
-      // }
+      allowNull: false,
+      validate: {
+        isDate: true
+      }
     },
     zip: {
       type: DataTypes.INTEGER,
