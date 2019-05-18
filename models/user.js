@@ -1,5 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    birthday: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      validate: {
+        isDate: true
+      }
+    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,13 +38,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-    birthday: {
-      type: DataTypes.DATEONLY,
-      // allowNull: false,
-      // validate: {
-      //   isDate: true
-      // }
-    },
     zip: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -47,6 +47,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-
   return User;
 };

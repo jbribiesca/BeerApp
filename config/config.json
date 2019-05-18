@@ -2,15 +2,16 @@
   "development": {
     "username": "root",
 
-=======
-    "password": "password",
+
+    "password": "CraftBeer@210",
+
     "database": "burp_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "CraftBeer@210",
     "database": "burp_db",
     "host": "localhost",
     "dialect": "mysql",
