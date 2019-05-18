@@ -3,11 +3,7 @@
     "username": "root",
 
 
-<<<<<<< HEAD
     "password": "password",
-=======
-    "password": "CraftBeer@210",
->>>>>>> 88718280fcf759699998ef9421d6608fbe46f551
 
     "database": "burp_db",
     "host": "localhost",
@@ -15,11 +11,7 @@
   },
   "test": {
     "username": "root",
-<<<<<<< HEAD
     "password": "",
-=======
-    "password": "CraftBeer@210",
->>>>>>> 88718280fcf759699998ef9421d6608fbe46f551
     "database": "burp_db",
     "host": "localhost",
     "dialect": "mysql",
