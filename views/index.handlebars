@@ -1,41 +1,65 @@
 <!-- Container for Landing Page Header (Bootstrap-> Components-> Jumbotron-> Fluid)-->
-<div id="home" class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{{msg}}}</h2>
-          <i class="fas fa-beer"></i>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/views/index.handlebars">
+    <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/views/index.handlebars">Home<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+
+    <!--LOGINS RIGHT SIDE ON NAVBAR -->
+    <p>
+      <a class="btn btn-outline-light" data-toggle="collapse" href="#signUp" role="button" aria-expanded="false"
+        aria-controls="signUp">
+        CREATE AN ACCOUNT
+      </a>
+      <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#logIn"
+        aria-expanded="false" aria-controls="logIn">
+        SIGN IN
+      </button>
+    </p>
+  </div>
+</nav>
+
+
+<div id="home" class="jumbotron jumbotron-fluid"></div>
+
+<!-- ADD SEARCH BAR HERE -->
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control form-control-lg mr-sm-2" type="search" placeholder="Beer" aria-label="Search">
+        <button class="btn btn-outline-light btn-lg my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <br>
     </div>
   </div>
 </div>
 
 
-<!-- Container for Buttons/toggle for sign up and log in options (Bootstrap-> Components-> Collapse-> Example)-->
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#signUp" role="button" aria-expanded="false"
-          aria-controls="signUp">
-          Sign Up
-        </a>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#logIn" aria-expanded="false"
-          aria-controls="logIn">
-          Log In
-        </button>
-      </p>
 
       <!-- Sign-up card content  form  (Bootstrap-> Components-> Form-> Form Row and validation) -->
       <div class="collapse" id="signUp">
         <div class="card card-body">
-          <p>Burp! sign up</p>
+          <h1 class="logo2"><i class="fas fa-beer"></i> Burp! Account</h1>
 
           {{!-- Form and post to api --}}
-          <form class="create-user needs-validation" novalidate>
+          <form class="needs-validation create-user" novalidate>
             <div class="form-row align-items-center">
               <div class="form-group col-md-3">
-                <label class="control-label" for="date">Please enter your Birthday</label>
+                <label class="control-label" for="date">Date of Birth</label>
                 <input class="form-control" id="bday" name="date" placeholder="MM/DD/YYYY" type="date" value=""
                   required />
                 <div class="invalid-feedback">Please provide Birthday</div>
@@ -68,12 +92,12 @@
             <div class="form-row align-items-center">
               <div class="form-group col-md-3">
                 <label for="inputZip"></label>
-                <input type="number" class="form-control" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" value=""
+                <input type="text" class="form-control" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" value=""
                   required>
                 <div class="invalid-feedback">Please provide Zip Code</div>
               </div>
               <div class="form-group col-md-3">
-                <button type="submit" class="btn btn-primary mb-2">Sign Up</button>
+                <button type="submit" class="btn btn-outline-dar">Sign Up</button>
               </div>
             </div>
           </form>
@@ -83,49 +107,37 @@
       <!-- Sign-in card content form (Bootstrap-> Components-> Form-> Auto-sizing)-->
       <div class="collapse" id="logIn">
         <div class="card card-body">
-          <p>Sign into Burp! </p>
-          <form method="post" class="needs-validation" novalidate>
+          <h1 class="logo2"><i class="fas fa-beer"></i> Burp! Log In</h1>
+          <br>
+          <form class="needs-validation" novalidate>
             <div class="form-row align-items-center">
               <div class="col-auto">
-                <label class="sr-only" for="inlineFormInputGroup">Email</label>
+                <label class="sr-only" for="login-email">Email</label>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value=""
+                  <input type="text" class="form-control" id="login-email" placeholder="Email" value=""
                     required>
                   <div class="invalid-feedback">Please provide Email</div>
                 </div>
               </div>
               <div class="col-auto">
-                <label class="sr-only" for="inlineFormInputGroup">Password</label>
+                <label class="sr-only" for="login-password">Password</label>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-key"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password" value=""
+                  <input type="text" class="form-control" id="login-password" placeholder="Password" value=""
                     required>
                   <div class="invalid-feedback">Please provide Password</div>
                 </div>
               </div>
               <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-2">Log In</button>
+                <button type="submit" class="btn btn-outline-dark mb-2">Log In</button>
               </div>
             </div>
           </form>
-        </div>
-      </div>
-      <div class="container"></div>
-      <div class="row">
-        <h3>User List for testing only</h3>
-        <div>
-          {{#each users}}
-          <div class="row">
-            <div class="col-sm-6">
-              <p>{{this.id}}. {{this.first_name}}</p>
-            </div>
-          </div>
-          {{/each}}
         </div>
       </div>
     </div>
@@ -133,10 +145,12 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="../public/js/index.js"></script>
+<script src="js/user.js"></script>
+
+
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function () {
@@ -145,14 +159,15 @@
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
       var forms = document.getElementsByClassName('needs-validation');
       // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function (form) {
+     var validation = Array.prototype.filter.call(forms, function (form) {
         form.addEventListener('submit', function (event) {
+        console.log('a')
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
-          }
+        /}
           form.classList.add('was-validated');
-        }, false);
+       }, false);
       });
     }, false);
   })();
