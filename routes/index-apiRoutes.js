@@ -15,10 +15,9 @@ module.exports = function(app) {
     });
   });
 
-  // // Delete an User by id
-  // app.delete("/api/users/:id", function(req, res) {
-  //   db.User.destroy({ where: { id: req.params.id } }).then(function(dbUsers) {
-  //     res.json(dbUsers);
-  //   });
-  // });
+  app.post("/api/beers", function(req, res) {
+    db.Beer.create(req.body).then(function(dbBeer) {
+      res.json(dbBeer);
+    });
+  });
 };
