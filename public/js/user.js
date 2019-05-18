@@ -3,14 +3,15 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
+    console.log("something");
     var newUser = {
       birthday: $("#bday")
         .val()
         .trim(),
-      firstName: $("#first-name")
+      first_name: $("#first-name")
         .val()
         .trim(),
-      lastName: $("#last-name")
+      last_name: $("#last-name")
         .val()
         .trim(),
       email: $("#email")
@@ -24,11 +25,13 @@ $(function() {
         .trim()
     };
 
+    console.log(newUser);
     // Send the POST request.
     $.ajax("/api/users", {
       type: "POST",
       data: newUser
     }).then(function() {
+      console.log(newUser);
       console.log("created new user");
       location.reload();
     });

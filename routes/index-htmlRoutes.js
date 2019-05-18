@@ -5,7 +5,14 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.render("index", {
-        msg: "Welcome!",
+        users: dbUser
+      });
+    });
+  });
+
+  app.get("/user", function(req, res) {
+    db.User.findAll({}).then(function(dbUser) {
+      res.render("user", {
         users: dbUser
       });
     });
