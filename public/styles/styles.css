@@ -1,5 +1,5 @@
 body{
-  background-image: url(https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
   background-repeat: no-repeat; 
 }
@@ -9,7 +9,7 @@ body{
 }
 
 .jumbotron{
-  padding: 50PX;
+  
   text-align: center;
   background-color: transparent;
 }
@@ -32,11 +32,31 @@ body{
   text-align: center;
 }
 
+/* Beer Cards */
+.card-header{
+  background-color: #F15F22;
+  color: white;
+}
+
+
+.card{
+margin-bottom: 10px;
+}
+
+
+/* Cards */
+.card-1{
+  background-color: transparent;
+  color: white;
+  text-align: center;
+}
+
+
 /* Dynamic search form styling */
 .searchBar {
   margin-bottom: auto;
   margin-top: auto;
-  height: 60px;
+  height: 70px;
   background-color: #353b48;
   border-radius: 30px;
   padding: 10px;
@@ -44,20 +64,21 @@ body{
 
 .search_input {
   color: white;
+  font-size: 30px;
   border: 0;
   outline: 0;
   background: transparent;
   width: 0;
   caret-color: transparent;
   line-height: 40px;
-  transition: width 0.4s linear;
+  transition: width 1s linear;
 }
 
 .searchBar:hover>.search_input {
   padding: 0 10px;
   width: 450px;
   caret-color: #F15F22;
-  transition: width 0.4s linear;
+  transition: width 1s linear;
 }
 
 .searchBar:hover>.search_icon {
@@ -66,8 +87,8 @@ body{
 }
 
 .search_icon {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   float: right;
   display: flex;
   justify-content: center;
@@ -82,10 +103,33 @@ body{
 @media (max-width: 576px) { 
 
   .searchBar:hover>.search_input {
-    padding: 0 10px;
-    width: 300px;
-    caret-color: #F15F22;
-    transition: width 0.4s linear;
+    width: 230px;
+    
   }
 
+  .search_input {
+    font-size: 25px;
+  }
+  
+  .search_icon {
+    height: 45px;
+    width: 45px;
+    
+  }
+
+  .searchBar {
+   
+    height: 65px;
+  }
+
+  .header-text{
+    font-size: 15px;
+  }
+
+  body{
+    background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: 1000px;
+    
+    background-repeat: no-repeat; 
+  }
 }
