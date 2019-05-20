@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "789fwhsm38",
+    "password": "null",
     "database": "burp_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "null",
     "database": "burp_db",
     "host": "localhost",
     "dialect": "mysql",
