@@ -35,9 +35,12 @@ app.listen(5000, function(err) {
 //Models
 var models = require("./models");
 
+//Sync Options
+var syncOptions = { force: false };
+
 //Sync Database
 models.sequelize
-  .sync({})
+  .sync(syncOptions)
   .then(function() {
     console.log("Nice! Database looks fine");
   })
@@ -83,7 +86,7 @@ var authRoute = require("./routes/auth.js")(app,passport);
 require('./config/passport/passport.js')(passport, models.User);
 
 //-----------------------------------------------------------------------//Authentication//------------------------------------
-var syncOptions = { force: false };
+
 
 
 // If running a test, set syncOptions.force to truever

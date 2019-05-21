@@ -47,6 +47,7 @@ $(document).ready(function() {
         beerButton.attr("beerabv", beerABV);
         beerButton.attr("beertype", beerStyle);
         beerButton.attr("breweryname", beerBrewery);
+        beerButton.attr("beerimg", beerImg);
         beerButton.addClass("btn btn-primary checkin");
         beerButton.attr("style", "float: right");
         beerButton.text("Check in Beer");
@@ -70,13 +71,15 @@ $(document).ready(function() {
     var beerABV = $(this).attr("beerabv");
     var beerType = $(this).attr("beertype");
     var breweryname = $(this).attr("breweryname");
+    var beerIMG = $(this).attr("beerimg");
 
     var beerObj = {
       beer_name: beerName,
       abv: beerABV,
       beer_type: beerType,
       brewery_name: breweryname,
-      drank_beer: true
+      drank_beer: true,
+      beerIMG: beerIMG
     };
 
     $.ajax("/api/beers", {
