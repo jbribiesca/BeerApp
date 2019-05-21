@@ -31,6 +31,10 @@ module.exports = function(sequelize, DataTypes) {
     drank_beer: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
+    },
+    beerIMG: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   });
   return Beer;
