@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Ahamay125!",
+    "password": "password",
     "database": "burp_db",
     "host": "localhost",
     "dialect": "mysql"
