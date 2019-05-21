@@ -2,6 +2,7 @@ body{
   background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
   background-repeat: no-repeat; 
+  background-color: black;
 }
 
 .list-group-item {
@@ -32,10 +33,35 @@ body{
   text-align: center;
 }
 
+/* Profile Card*/
+.card-left{
+  background-color: #F15F22;
+  background-size: cover;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Beer History */
+.card-center{
+  background-color: #353b48;
+  
+  
+ 
+
+
+}
+
 /* Beer Cards */
 .card-header{
   background-color: #F15F22;
   color: white;
+}
+
+.beer-circles{
+  
+  display: inline;
+  background-color: #353b48;
+  margin-right: 5px;
 }
 
 
