@@ -8,8 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     abv: {
-      type: DataTypes.DECIMAL(10, 2),  ///****not sure if this is correct */
-      allowNull: false,
+      type: DataTypes.DECIMAL(10, 2),  
       validate: {
         len: [1, 255]
       }

@@ -11,184 +11,67 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merchandise<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merchandise<span
+            class="sr-only">(current)</span></a>
       </li>
     </ul>
-    
+
 
     <!--LOGINS RIGHT SIDE ON NAVBAR -->
     <p>
-      <a class="btn btn-outline-light" data-toggle="collapse" href="#signUp" role="button" aria-expanded="false"
-        aria-controls="signUp">
+      <a class="btn btn-outline-light" href="/signup" role="button" aria-expanded="false" aria-controls="signUp">
         CREATE AN ACCOUNT
       </a>
-      <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#logIn"
-        aria-expanded="false" aria-controls="logIn">
+      <a class="btn btn-outline-light" href="/signin" role="button" aria-expanded="false" aria-controls="logIn">
         SIGN IN
-      </button>
+      </a>
     </p>
   </div>
 </nav>
 
 
 <!-- TEST -->
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card-1">
-        <div class="card-body">
-          <br>
-          <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
-          <p class="card-text">"Discover more beers, breweries & styles... Click on our mug! "</p>
-          
-
-        </div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card-1">
+      <div class="card-body">
+        <br>
+        <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
+        <p class="card-text">"Discover more beers, breweries & styles... Click on our mug! "</p>
       </div>
-    </div>
-
-<!-- TEST -->
-
-
-<div id="home" class="jumbotron jumbotron-fluid"></div>
-
-<!-- ADD SEARCH BAR HERE -->
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2 justify-content-center d-flex h-100">
-      <form class="searchBar">
-        <input class="search_input" type="search" placeholder="Search" aria-label="Search" id="searchText">
-        <button class="search_icon" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
-      </form>
-      <br>
     </div>
   </div>
-  <br>
-</div>
 
+  <!-- TEST -->
+  <div id="home" class="jumbotron jumbotron-fluid"></div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-
-      <!-- Sign-up card content  form  (Bootstrap-> Components-> Form-> Form Row and validation) -->
-      <div class="collapse" id="signUp">
-        <div class="card card-body">
-          <h1 class="logo2"><i class="fas fa-beer"></i> Account</h1>
-
-          {{!-- Form and post to api --}}
-          <form class="needs-validation create-user" novalidate>
-            <div class="form-row align-items-center">
-              <div class="form-group col-md-3">
-                <label class="control-label" for="date">Date of Birth</label>
-                <input class="form-control" id="bday" name="date" placeholder="MM/DD/YYYY" type="date" value=""
-                  required />
-                <div class="invalid-feedback">Please provide Birthday</div>
-              </div>
-            </div>
-            <div class="form-row align-items-center">
-              <div class="form-group col-md-3">
-                <label for="inputFirstName"></label>
-                <input type="text" class="form-control" id="first-name" placeholder="First Name" value="" required>
-                <div class="invalid-feedback">Please provide First Name</div>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="inputLastName"></label>
-                <input type="text" class="form-control" id="last-name" placeholder="Last Name" value="" required>
-                <div class="invalid-feedback">Please provide Last Name</div>
-              </div>
-            </div>
-            <div class="form-row align-items-center">
-              <div class="form-group col-md-3">
-                <label for="inputEmail"></label>
-                <input type="email" class="form-control" id="email" placeholder="Email" value="" required>
-                <div class="invalid-feedback">Please provide Email</div>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="inputPassword"></label>
-                <input type="password" class="form-control" id="password" placeholder="Password" value="" required>
-                <div class="invalid-feedback">Please provide Password</div>
-              </div>
-            </div>
-            <div class="form-row align-items-center">
-              <div class="form-group col-md-3">
-                <label for="inputZip"></label>
-                <input type="text" class="form-control" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" value=""
-                  required>
-                <div class="invalid-feedback">Please provide Zip Code</div>
-              </div>
-              <div class="form-group col-md-3">
-                <button type="submit" class="btn btn-outline-dar">Sign Up</button>
-              </div>
-            </div>
-          </form>
-        </div>
+  <!-- ADD SEARCH BAR HERE -->
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2 justify-content-center d-flex h-100">
+        <form class="searchBar">
+          <input class="search_input" type="search" placeholder="Search" aria-label="Search" id="searchText">
+          <button class="search_icon" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
+        </form>
+        <br>
       </div>
+    </div>
+    <br>
+  </div>
 
-      <!-- Sign-in card content form (Bootstrap-> Components-> Form-> Auto-sizing)-->
-      <div class="collapse" id="logIn">
-        <div class="card card-body">
-          <h1 class="logo2"><i class="fas fa-beer"></i> Log In</h1>
-          <br>
-          <form class="needs-validation" novalidate>
-            <div class="form-row align-items-center">
-              <div class="col-auto">
-                <label class="sr-only" for="login-email">Email</label>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-envelope"></i></div>
-                  </div>
-                  <input type="text" class="form-control" id="login-email" placeholder="Email" value="" required>
-                  <div class="invalid-feedback">Please provide Email</div>
-                </div>
-              </div>
-              <div class="col-auto">
-                <label class="sr-only" for="login-password">Password</label>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-key"></i></div>
-                  </div>
-                  <input type="text" class="form-control" id="login-password" placeholder="Password" value="" required>
-                  <div class="invalid-feedback">Please provide Password</div>
-                </div>
-              </div>
-              <div class="col-auto">
-                <button type="submit" class="btn btn-outline-dark mb-2">Log In</button>
-              </div>
-            </div>
-          </form>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <div>
+          {{> beers/beer-block}}
         </div>
       </div>
     </div>
   </div>
-<div>
-  {{> beers/beer-block}}
-</div>
 
-</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="js/user.js"></script>
+  <script src="js/form-validation.js"></script>
   <script src="js/beer.js"></script>
-
-
-  <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-      'use strict';
-      window.addEventListener('load', function () {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function (form) {
-          form.addEventListener('submit', function (event) {
-            console.log('a')
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-              /}
-              form.classList.add('was-validated');
-            }, false);
-        });
-      }, false);
-    })();
-  </script>

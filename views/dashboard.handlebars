@@ -1,5 +1,146 @@
-<body>
-    <h2>Dashboard</h2>
-    <h5>Hurray! you are logged in.</h5>
- 
-</body>
+<!-- NAVBAR with Brand Name and Merch (Bootstrap-> Components-> Jumbotron-> Fluid)-->
+<!-- http://localhost:8080/user -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/views/index.handlebars">
+    <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merchandise<span
+            class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+
+    <p>
+      <div class="col-10 offset-3 justify-content-center d-flex h-100">
+        <form class="searchBar">
+          <input class="search_input" type="search" placeholder="Search" aria-label="Search" id="searchText">
+          <button class="search_icon" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
+        </form>
+        <br>
+      </div>
+    </p>
+    
+  </div>
+
+</nav>
+
+<!-- Profile User Cards -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card-1">
+        <div class="card-left">
+          <br>
+          <br>
+          <br>
+          <img src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg" alt="..."
+            class="rounded-circle">
+          <h5 class="card-title">Tom MySpace</h5>
+          <p class="card-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+            leap into electronic typesetting, remaining essentially unchanged. "</p>
+
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="card-1">
+        <div class="card-center">
+          <br>
+          <h1 class="logo"><i class="fas fa-beer"></i> Photos!</h1>
+          <p class="card-text"><small class="text-muted">
+              <cite title="Source Title">Last updated 30 mins ago...</cite>
+            </small></p>
+          <div class="beer-circles">
+            <img src="https://i.pinimg.com/originals/e4/36/27/e4362795026af41483df7d42d104fb53.jpg" alt="..."
+              class="rounded-circle" width="100px" height="100px">
+
+            <img
+              src="https://images.pexels.com/photos/1557686/pexels-photo-1557686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="..." class="rounded-circle" width="100px" height="100px">
+
+            <img
+              src="https://images.pexels.com/photos/338711/pexels-photo-338711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="..." class="rounded-circle" width="100px" height="100px">
+
+            <img
+              src="https://images.pexels.com/photos/1839942/pexels-photo-1839942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="..." class="rounded-circle" width="100px" height="100px">
+
+            <img
+              src="https://images.pexels.com/photos/267909/pexels-photo-267909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="..." class="rounded-circle" width="100px" height="100px">
+
+            <img
+              src="https://images.pexels.com/photos/1267681/pexels-photo-1267681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="..." class="rounded-circle" width="100px" height="100px">
+
+
+          </div>
+          <br>
+          <br>
+        </div>
+      </div>
+
+
+      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+      <div class="row">
+
+        <div class="col-sm-12">
+
+          <br>
+          <div class="card-1">
+            <div class="card-center">
+              <br>
+              <h1 class="logo"><i class="fas fa-beer"></i> Recent Activity</h1>
+              <p class="card-text">"Checked-In Beers"</p>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+            <br>
+            <br>
+          </div>
+        </div>
+
+      </div>
+      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+
+
+
+
+
+      <!-- CARD DECK TEST-->
+
+
+
+      <!-- CARD DECK TEST-->
+
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../public/js/user.js"></script>

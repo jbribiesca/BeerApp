@@ -38,7 +38,6 @@ module.exports = function(sequelize, DataTypes) {
         isDate: true
       }
     },
-
     zip: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -47,7 +46,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 5]
       }
     },
-
     last_login: {
       type: DataTypes.DATE
     },

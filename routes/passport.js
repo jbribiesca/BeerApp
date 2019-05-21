@@ -2,9 +2,9 @@
 var bCrypt = require("bcrypt-nodejs");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-var db = require("../../models");
+var db = require("../models");
 
-module.exports = function(passport, user) {
+module.exports = function(user) {
   var User = user;
 
   //serialize
@@ -23,22 +23,14 @@ module.exports = function(passport, user) {
     });
   });
 
-  passport.use(
-    "local-signup",
-    new LocalStrategy(
+  passport.use("local-signup",new LocalStrategy(
       {
         last_name: "last_name",
-
         first_name: "first_name",
-
         birthday: "birthday",
-
         zip: "zip",
-
         usernameField: "email",
-
         passwordField: "password",
-
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
@@ -58,18 +50,12 @@ module.exports = function(passport, user) {
             });
           } else {
             var userPassword = generateHash(password);
-
             var data = {
               email: email,
-
               password: userPassword,
-
               first_name: req.body.first_name,
-
               last_name: req.body.last_name,
-
               zip: req.body.zip,
-
               birthday: req.body.birthday
             };
             console.log(data);
@@ -78,7 +64,6 @@ module.exports = function(passport, user) {
               if (!newUser) {
                 return done(null, false);
               }
-
               if (newUser) {
                 return done(null, newUser);
               }
@@ -97,9 +82,7 @@ module.exports = function(passport, user) {
         // by default, local strategy uses username and password, we will override with email
 
         usernameField: "email",
-
         passwordField: "password",
-
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
