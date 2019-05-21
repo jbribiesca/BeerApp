@@ -1,15 +1,10 @@
-// var keys = require("../keys.js");
 $(document).ready(function() {
   $(document).on("click", "#searchBtn", function(event) {
     event.preventDefault();
     console.log("clicked");
     $("#beer-body").empty();
     var searchQuery = $("#searchText").val();
-    var queryURL =
-      "https://cors-anywhere.herokuapp.com/https://api.untappd.com/v4//search/beer?q=" +
-      searchQuery +
-      "&client_id=DCDA4CA865856CE712454B16658CFDBB4CAAA601" +
-      "&client_secret=694D2579A0454420B60ABDB2D48E369C80628DFE";
+    var queryURL = "/api/untapped/" + searchQuery;
     $.ajax({
       url: queryURL,
       method: "GET"
