@@ -24,19 +24,20 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-    u_password: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1, 255]
       }
     },
+
     birthday: {
-      type: DataTypes.DATEONLY,
-      // allowNull: false,
-      // validate: {
-      //   isDate: true
-      // }
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        isDate: true
+      }
     },
     zip: {
       type: DataTypes.INTEGER,
@@ -45,6 +46,15 @@ module.exports = function(sequelize, DataTypes) {
         isInt: true,
         len: [1, 5]
       }
+    },
+
+    last_login: {
+      type: DataTypes.DATE
+    },
+
+    status: {
+      type: DataTypes.ENUM("active", "inactive"),
+      defaultValue: "active"
     }
   });
 
