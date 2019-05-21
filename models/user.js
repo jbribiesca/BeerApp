@@ -31,7 +31,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-
     birthday: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -39,6 +38,7 @@ module.exports = function(sequelize, DataTypes) {
         isDate: true
       }
     },
+
     zip: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -57,6 +57,5 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: "active"
     }
   });
-
   return User;
 };

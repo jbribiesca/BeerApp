@@ -74,6 +74,7 @@ app.use(methodOverride("_method"));
 require("./routes/index-apiRoutes")(app);
 require("./routes/index-htmlRoutes")(app);
 
+
 //---------------------------------------------------------------------//Authentication//----------------------
 //Routes
 var authRoute = require("./routes/auth.js")(app,passport);
@@ -83,6 +84,7 @@ require('./config/passport/passport.js')(passport, models.User);
 
 //-----------------------------------------------------------------------//Authentication//------------------------------------
 var syncOptions = { force: false };
+
 
 // If running a test, set syncOptions.force to truever
 // clearing the `testdb`

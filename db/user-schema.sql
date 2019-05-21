@@ -19,5 +19,8 @@ CREATE TABLE users (
     zip INTEGER(5) NOT NULL,
     last_login DATE,
     status ENUM ("active", "inactive"),
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(32) NOT NULL, 
+    zip INTEGER(5) NOT NULL, 
     PRIMARY KEY (id)
 );
