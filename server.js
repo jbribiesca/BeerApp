@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 //Sync Database
-db.sequelize.sync({}).then(function () {
+db.sequelize.sync(syncOptions).then(function () {
   app.listen(PORT, function (err) {
     if (!err) console.log("Server listening on: http://localhost:" + PORT);
     else console.log(err);
