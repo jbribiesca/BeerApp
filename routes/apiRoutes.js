@@ -4,12 +4,23 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+  //*GET 
+
    // Get all beers
    app.get("/api/beers", function(req, res) {
-    db.Beer.findAll({}).then(function(dbbeers) {
-      res.json(dbbeers);
+    db.Beer.findAll({}).then(function(dbBeer) {
+      res.json(dbBeer);
     });
   });
+
+  app.get("/api/dashboard", function(req, res) {
+    db.Beer.findAll({}).then(function(dbReview) {
+      res.json(dbReview);
+    });
+  });
+
+
+   //*POST
 
   // Create a new Beer
   app.post("/api/beers", function(req, res) {
@@ -18,12 +29,16 @@ module.exports = function(app) {
     });
   });
 
+  //*DELETE
+
   // Delete an Beer by id
   app.delete("/api/beers/:id", function(req, res) {
     db.Beer.destroy({ where: { id: req.params.id } }).then(function(dbBeer) {
       res.json(dbBeer);
     });
   });
+
+
 
 // Third party API - Untapped - for beer search
 
@@ -46,4 +61,27 @@ module.exports = function(app) {
       res.json(data)
     })
   });
+
+
+
+
+  User.findAll({
+    include: [
+      {
+        model: Team, 
+        include: [
+          Folder
+        ]  
+      }
+    ]
+  });
+
+
+
+
+
+
 };
+
+
+
