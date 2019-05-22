@@ -26,7 +26,7 @@
         <br>
       </div>
     </p>
-    
+
   </div>
 
 </nav>
@@ -106,6 +106,18 @@
               <br>
               <h1 class="logo"><i class="fas fa-beer"></i> Recent Activity</h1>
               <p class="card-text">"Checked-In Beers"</p>
+              <ul>
+                <ul>
+                  {{#each reviews}}
+                  <li>
+                    <p>First Name: {{first_name}}</p>
+                    <p>Beer Name: {{beer_name}}</p>
+                    <p>Ratings: {{stars}}</p>
+                  </li>
+                  {{/each}}
+                </ul>
+              </ul>
+
               <br>
               <br>
               <br>

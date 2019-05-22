@@ -33,3 +33,7 @@ CREATE TABLE beers (
     -- Sets id as this table's primary key which means all data contained within it will be unique
     PRIMARY KEY (id)
 );
+
+--For testing only
+INSERT INTO beers (beer_name, abv, ibu, beer_type, brewery_name, drank_beer)
+VALUES ("Medalla Light", 4.2, 125, "Light Lager", "Cervecera de Puerto Rico", FALSE);

@@ -14,7 +14,7 @@ module.exports = function(user) {
 
   // deserialize user
   passport.deserializeUser(function(id, done) {
-    db.User.findById(id).then(function(user) {
+    db.User.findByPk(id).then(function(user) {
       if (user) {
         done(null, user.get());
       } else {
@@ -23,7 +23,9 @@ module.exports = function(user) {
     });
   });
 
-  passport.use("local-signup",new LocalStrategy(
+
+  // Sign Up --- takes input and checks if email already exists. If it exists it will return a message to user, if not it goes ahead with inputting the new user's information into the database
+  passport.use("local-signup", new LocalStrategy(
       {
         last_name: "last_name",
         first_name: "first_name",
@@ -75,9 +77,7 @@ module.exports = function(user) {
   );
 
   //LOCAL SIGNIN
-  passport.use(
-    "local-signin",
-    new LocalStrategy(
+  passport.use("local-signin", new LocalStrategy(
       {
         // by default, local strategy uses username and password, we will override with email
 
