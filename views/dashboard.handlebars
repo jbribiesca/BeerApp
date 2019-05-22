@@ -1,7 +1,7 @@
 <!-- NAVBAR with Brand Name and Merch (Bootstrap-> Components-> Jumbotron-> Fluid)-->
 <!-- http://localhost:8080/user -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/views/index.handlebars">
+  <a class="navbar-brand" href="/">
     <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -106,18 +106,15 @@
               <br>
               <h1 class="logo"><i class="fas fa-beer"></i> Recent Activity</h1>
               <p class="card-text">"Checked-In Beers"</p>
-              <ul>
-                <ul>
+            
                   {{#each reviews}}
-                  <li>
-                    <p>First Name: {{first_name}}</p>
-                    <p>Beer Name: {{beer_name}}</p>
+                    <img src={{Beer.beerIMG}}></img>
+                    <p>Beer Name: {{Beer.beer_name}}</p>
                     <p>Ratings: {{stars}}</p>
-                  </li>
+                
                   {{/each}}
-                </ul>
-              </ul>
-
+             
+             
               <br>
               <br>
               <br>

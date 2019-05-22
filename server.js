@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
+
 // For Passport
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
@@ -37,6 +38,10 @@ var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 
 // Routes
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require('./routes/passport.js')(db.User);

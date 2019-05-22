@@ -19,12 +19,19 @@
 
     <!--LOGINS RIGHT SIDE ON NAVBAR -->
     <p>
+      {{#if user}}
+      <h5 style="color: white">Welcome: {{user.first_name}} </h5>&nbsp;
+      <a class="btn btn-outline-light" href="/dashboard" role="button" aria-expanded="false" aria-controls="signUp">
+        Dashboard
+      </a>
+      {{else}}
       <a class="btn btn-outline-light" href="/signup" role="button" aria-expanded="false" aria-controls="signUp">
         CREATE AN ACCOUNT
       </a>
       <a class="btn btn-outline-light" href="/signin" role="button" aria-expanded="false" aria-controls="logIn">
         SIGN IN
       </a>
+      {{/if}}
     </p>
   </div>
 </nav>
@@ -38,6 +45,7 @@
         <br>
         <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
         <p class="card-text">"Discover more beers, breweries & styles... Click on our mug! "</p>
+        <div id="user2"></div>
       </div>
     </div>
   </div>

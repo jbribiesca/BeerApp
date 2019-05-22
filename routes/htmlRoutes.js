@@ -1,13 +1,13 @@
 var db = require("../models");
 var passport = require("passport");
 
-module.exports = function (app) {
+module.exports = function(app) {
 
   // GET Routes
 
   // Load index page
   app.get("/", function (req, res) {
-    res.render("index");
+    res.render("index", { user: req.user });
   });
 
    // Render user Sign Up page 
@@ -21,10 +21,21 @@ module.exports = function (app) {
   });
 
    // Render dashboard page
-  app.get("/dashboard", isLoggedIn, function (req, res) {
-    res.render("dashboard");
+  app.get("/dashboard", isLoggedIn, function(req, res) {
+    db.Review.findAll({
+      include: [
+        {
+          all: true,
+          nested: true
+        }
+      ]
+    }).then(function(dbReview) {
+      console.log(dbReview)
+      res.render("dashboard", {
+        reviews: dbReview
+      });
+    });
   });
-
   app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
       res.redirect("/");
