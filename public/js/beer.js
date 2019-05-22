@@ -50,7 +50,9 @@ $(document).ready(function() {
         beerButton.attr("beerimg", beerImg);
         beerButton.addClass("btn btn-primary checkin");
         beerButton.attr("style", "float: right");
-        beerButton.text("Check in Beer");
+        beerButton.html(
+          "Check in Beer " + "<span><i class='fas fa-beer'></i></span>"
+        );
 
         beerDiv.append(beerDivHeader);
         beerDiv.append(beerDivBody);
