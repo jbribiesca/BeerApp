@@ -14,11 +14,21 @@ module.exports = function(app) {
   });
 
   app.get("/api/dashboard", function(req, res) {
-    db.Beer.findAll({}).then(function(dbReview) {
+    db.Review.findAll({
+      include: [
+        {
+          model: User, 
+          include: [
+            Beer
+          ]  
+        }
+      ]
+    }).then(function(dbReview) {
       res.json(dbReview);
     });
   });
 
+  
 
    //*POST
 
@@ -61,25 +71,6 @@ module.exports = function(app) {
       res.json(data)
     })
   });
-
-
-
-
-  User.findAll({
-    include: [
-      {
-        model: Team, 
-        include: [
-          Folder
-        ]  
-      }
-    ]
-  });
-
-
-
-
-
 
 };
 

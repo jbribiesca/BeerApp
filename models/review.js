@@ -11,10 +11,10 @@ module.exports = function (sequelize, DataTypes) {
     });
     Review.associate = function (models) {
         Review.belongsTo(models.User, {
-            onDelete: "cascade"
+            through: "id"
         });
         Review.belongsTo(models.Beer, {
-            onDelete: "cascade"
+            through: "id"
         });
     };
 
