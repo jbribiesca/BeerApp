@@ -3,6 +3,7 @@ var bCrypt = require("bcrypt-nodejs");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var db = require("../models");
+var moment = require("moment");
 
 module.exports = function(user) {
   var User = user;
@@ -60,7 +61,28 @@ module.exports = function(user) {
               zip: req.body.zip,
               birthday: req.body.birthday
             };
-            console.log(data);
+            // console.log(data);
+
+            //check age -- 21 and up
+            var birthday;
+            var age;
+            function ageValidation(value, minAge) {
+                  birthday = moment(value, "YYYY-MM-DD");
+                  age = moment.duration(moment().diff(birthday)).asYears();
+            
+                  console.log(age); 
+                  return (age >= minAge);
+            
+            }
+            ageValidation(req.body.birthday, 21); 
+
+
+            if (age >= minAge) {
+              console.log("You are old enough");
+            }
+            else 
+            console.log("You must be older than 21 to sign up");
+            // return (age >= minAge);
 
             User.create(data).then(function(newUser, created) {
               if (!newUser) {
@@ -125,3 +147,5 @@ module.exports = function(user) {
     )
   );
 };
+
+
