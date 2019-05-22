@@ -24,6 +24,7 @@ module.exports = function(app) {
         }
       ]
     }).then(function(dbReview) {
+      console.log("me")
       res.json(dbReview);
     });
   });
