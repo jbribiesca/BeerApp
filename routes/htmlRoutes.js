@@ -13,14 +13,16 @@ module.exports = function(app) {
 
    // Render user Sign Up page 
   app.get("/signup", function (req, res) {
-    res.render("signup");
+    let flashMessage = { messages: req.flash("info")[0]}
+    console.log(req.flash('info')[0]);
+    res.render("signup", flashMessage);
   });
 
    // Render user Sign In page 
   app.get("/signin", function (req, res) {
-    var flashMessage = { messages: req.flash("info")[0]}
+    let flashMessage = { messages: req.flash("info")[0]}
     console.log(req.flash('info')[0]);
-    res.render("signin", flashMessage );
+    res.render("signin", flashMessage);
   });
 
    // Render dashboard page
