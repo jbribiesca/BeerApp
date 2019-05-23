@@ -2,9 +2,11 @@ require("dotenv").config();
 
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var flash = require('connect-flash');
+var cookieParser = require('cookie-parser')
 var passport = require("passport");
 var session = require("express-session");
+
 // var bodyParser = require("body-parser");
 
 var db = require("./models");
@@ -16,6 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+// Flash middleware for messages
+
+  app.use(cookieParser('keyboard cat'));
+  app.use(session({ cookie: { maxAge: 60000 }}));
+  app.use(flash());
 
 
 // For Passport
@@ -42,12 +49,13 @@ app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();
 });
+
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require('./routes/passport.js')(db.User);
 
-//-----------------------------------------------------------------------//Authentication//------------------------------------
-var syncOptions = { force: false };
+
+var syncOptions = { force: true };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }

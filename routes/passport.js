@@ -52,6 +52,7 @@ module.exports = function(user) {
             return done(null, false, {
               message: "That email is already taken"
             });
+          
           } else {
             var userPassword = generateHash(password);
             var data = {
@@ -62,6 +63,21 @@ module.exports = function(user) {
               zip: req.body.zip,
               birthday: req.body.birthday
             };
+
+//             // console.log(data);
+
+//             //check age -- 21 and up *******************
+    
+
+//             User.create(data).then(function(newUser, created) {
+//               if (!newUser) {
+//                 return done(null, false);
+//               }
+//               if (newUser) {
+//                 return done(null, newUser);
+//               }
+//             });
+
             //------------Age Verification-----------------
             var birthday = moment("birthday", "DD.MM.YYYY"),
               age = moment().diff(birthday, "years");
@@ -78,12 +94,16 @@ module.exports = function(user) {
                 }
               });
             }
+
           }
         });
       }
     )
   );
 
+
+
+  
   //LOCAL SIGNIN
   passport.use(
     "local-signin",
@@ -110,9 +130,10 @@ module.exports = function(user) {
         })
           .then(function(user) {
             if (!user) {
-              return done(null, false, {
-                message: "Email does not exist"
-              });
+              return done(null, false, req.flash(
+                'info',
+                "Email does not exist")
+              );
             }
 
             if (!isValidPassword(user.password, password)) {
