@@ -95,9 +95,7 @@ $(document).ready(function() {
       type: "POST",
       data: beerObj
     }).then(function() {
-      location.reload();
+      window.location = "/dashboard";
     });
-
-    console.log("clicked here on check in");
   });
 });
