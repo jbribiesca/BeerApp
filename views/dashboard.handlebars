@@ -24,13 +24,22 @@
           <button class="search_iconNav" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
         </form>
         <br>
-          <p><a class="btn btn-outline-light" href="/logout" role="button" aria-expanded="false" aria-controls="logIn">
-       LOGOUT
-      </a></p> 
+        <p><a class="btn btn-outline-light" href="/logout" role="button" aria-expanded="false" aria-controls="logIn">
+            LOGOUT
+          </a></p>
       </div>
     </p>
   </div>
 </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <div>
+          {{> beers/beer-block}}
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Profile User Cards -->
 <br>
@@ -42,10 +51,11 @@
           <br>
           <br>
           <br>
-          <img id="profilePic" src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg" alt="..."
+          <img id="profilePic"
+            src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg" alt="..."
             class="rounded-circle">
           <h5 class="card-title">
-           {{user.first_name}} {{user.last_name}} {{user.id}}
+            {{user.first_name}} {{user.last_name}}
           </h5>
           <p class="card-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
@@ -109,13 +119,19 @@
               <br>
               <h1 class="logo"><i class="fas fa-beer"></i> Recent Activity</h1>
               <p class="card-text">Checked-In Beers</p>
+
+              {{#each reviews}}
+              <div class="card">
+                <div class="card-header"><p>{{Beer.beer_name}}</p></div>
+                <div class="card-body"><img src={{Beer.beerIMG}} style="float:left"></img>
+                <p style="color: black">Rating (1-5): {{stars}}</p>
+                </div>
+              </div>
+              
             
-                  {{#each reviews}}
-                    <img src={{Beer.beerIMG}}></img>
-                    <p>Beer Name: {{Beer.beer_name}}</p>
-                    <p>Ratings: {{stars}}</p>
-                  {{/each}}
-                  
+              
+              {{/each}}
+
               <br>
               <br>
               <br>
@@ -150,7 +166,7 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="../public/js/user.js"></script>
+    <script src="js/beer.js"></script>

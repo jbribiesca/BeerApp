@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  var beerObj = {};
   $(document).on("click", "#searchBtn", function(event) {
     event.preventDefault();
     console.log("clicked");
@@ -44,13 +45,13 @@ $(document).ready(function() {
 
         var beerButton = $("<button>");
         var beerButton2 = $("<button>");
-        beerButton2.attr("beername", beerName);
-        beerButton2.attr("beerabv", beerABV);
-        beerButton2.attr("beertype", beerStyle);
-        beerButton2.attr("breweryname", beerBrewery);
-        beerButton2.attr("beerimg", beerImg);
+        beerButton.attr("beername", beerName);
+        beerButton.attr("beerabv", beerABV);
+        beerButton.attr("beertype", beerStyle);
+        beerButton.attr("breweryname", beerBrewery);
+        beerButton.attr("beerimg", beerImg);
         beerButton2.text("Review");
-        beerButton.addClass("btn btn-primary");
+        beerButton.addClass("btn btn-primary rate");
         beerButton2.addClass("btn btn-primary checkin");
         beerButton.attr("data-toggle", "modal");
         beerButton.attr("data-target", "#exampleModal");
@@ -70,27 +71,31 @@ $(document).ready(function() {
         $("#beer-body").append(beerDiv);
         $("#beerbutton").replaceWith(beerButton2);
       }
+
+      $(document).on("click", ".rate", function(event) {
+        var beerName = $(this).attr("beername");
+        var beerABV = $(this).attr("beerabv");
+        var beerType = $(this).attr("beertype");
+        var breweryname = $(this).attr("breweryname");
+        var beerIMG = $(this).attr("beerimg");
+        var beerRating = $("#beerRating").val();
+    
+        beerObj = {
+          beer_name: beerName,
+          abv: beerABV,
+          beer_type: beerType,
+          brewery_name: breweryname,
+          drank_beer: true,
+          beerIMG: beerIMG,
+          stars: beerRating
+        };
+      });
     });
   });
 
   $(document).on("click", ".checkin", function(event) {
     event.preventDefault();
-    var beerName = $(this).attr("beername");
-    var beerABV = $(this).attr("beerabv");
-    var beerType = $(this).attr("beertype");
-    var breweryname = $(this).attr("breweryname");
-    var beerIMG = $(this).attr("beerimg");
-    var beerRating = $("#beerRating").val();
-
-    var beerObj = {
-      beer_name: beerName,
-      abv: beerABV,
-      beer_type: beerType,
-      brewery_name: breweryname,
-      drank_beer: true,
-      beerIMG: beerIMG,
-      stars: beerRating
-    };
+    
     $.ajax("/api/beers", {
       type: "POST",
       data: beerObj
