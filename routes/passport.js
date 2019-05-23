@@ -49,10 +49,11 @@ module.exports = function(user) {
           }
         }).then(function(user) {
           if (user) {
-            return done(null, false, {
-              message: "That email is already taken"
-            });
-          
+            return done(null, false, 
+              req.flash(
+                'info',
+                "That email is already taken")
+            );
           } else {
             var userPassword = generateHash(password);
             var data = {
@@ -83,7 +84,12 @@ module.exports = function(user) {
               age = moment().diff(birthday, "years");
             console.log(age);
             if (age <= 20) {
-              ("You are not old enough");
+              // ("You are not old enough");
+              return done(null, false, 
+                req.flash(
+                  'info',
+                  "You are not old enough")
+              );
             } else {
               User.create(data).then(function(newUser, created) {
                 if (!newUser) {
@@ -94,14 +100,11 @@ module.exports = function(user) {
                 }
               });
             }
-
           }
         });
       }
     )
   );
-
-
 
   
   //LOCAL SIGNIN
@@ -130,16 +133,19 @@ module.exports = function(user) {
         })
           .then(function(user) {
             if (!user) {
-              return done(null, false, req.flash(
+              return done(null, false, 
+                req.flash(
                 'info',
                 "Email does not exist")
               );
             }
 
             if (!isValidPassword(user.password, password)) {
-              return done(null, false, {
-                message: "Incorrect password."
-              });
+              return done(null, false, 
+                req.flash(
+                  'info',
+                  "Incorrect password.")
+                );
             }
 
             var userinfo = user.get();
@@ -148,9 +154,11 @@ module.exports = function(user) {
           .catch(function(err) {
             console.log("Error:", err);
 
-            return done(null, false, {
-              message: "Something went wrong with your Signin"
-            });
+            return done(null, false, 
+              req.flash(
+                'info',
+                "Something went wrong with your Signin")
+              );
           });
       }
     )
