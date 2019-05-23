@@ -78,8 +78,6 @@ $(document).ready(function() {
         var beerType = $(this).attr("beertype");
         var breweryname = $(this).attr("breweryname");
         var beerIMG = $(this).attr("beerimg");
-        var beerRating = $("#beerRating").val();
-    
         beerObj = {
           beer_name: beerName,
           abv: beerABV,
@@ -95,12 +93,26 @@ $(document).ready(function() {
 
   $(document).on("click", ".checkin", function(event) {
     event.preventDefault();
-    
+    var beerRating = $("#beerRating").val();
+
+    var tmpObj = beerObj;
+
+    $.extend(tmpObj, { stars: beerRating });
     $.ajax("/api/beers", {
       type: "POST",
-      data: beerObj
+      data: tmpObj
     }).then(function() {
       window.location = "/dashboard";
+    });
+  });
+
+  $(document).on("click", ".delete", function(event) {
+    event.preventDefault();
+    var beerId = $(this).attr("data-attr");
+    $.ajax("/api/beers/" + beerId, {
+      type: "DELETE"
+    }).then(function() {
+      location.reload();
     });
   });
 });
