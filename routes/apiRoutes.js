@@ -35,8 +35,21 @@ module.exports = function(app) {
 
   // Create a new Beer
   app.post("/api/beers", function(req, res) {
-    db.Beer.create(req.body).then(function(dbBeer) {
-      res.json(dbBeer);
+    db.Beer.create(req.body,{
+      include: [
+        {
+          model: db.Review,
+          include: [
+            db.Beer
+          ]
+        }
+      ]
+    }).then(function(dbBeer) {
+      db.Review.create({
+        stars: req.body.stars,
+        BeerId: dbBeer.id,
+        UserId: req.user.id
+    })
     });
   });
 
