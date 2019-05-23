@@ -51,6 +51,7 @@ module.exports = function(user) {
             return done(null, false, {
               message: "That email is already taken"
             });
+          
           } else {
             var userPassword = generateHash(password);
             var data = {
@@ -63,26 +64,8 @@ module.exports = function(user) {
             };
             // console.log(data);
 
-            //check age -- 21 and up
-            var birthday;
-            var age;
-            function ageValidation(value, minAge) {
-                  birthday = moment(value, "YYYY-MM-DD");
-                  age = moment.duration(moment().diff(birthday)).asYears();
-            
-                  console.log(age); 
-                  return (age >= minAge);
-            
-            }
-            ageValidation(req.body.birthday, 21); 
-
-
-            if (age >= minAge) {
-              console.log("You are old enough");
-            }
-            else 
-            console.log("You must be older than 21 to sign up");
-            // return (age >= minAge);
+            //check age -- 21 and up *******************
+    
 
             User.create(data).then(function(newUser, created) {
               if (!newUser) {
@@ -98,6 +81,9 @@ module.exports = function(user) {
     )
   );
 
+
+
+  
   //LOCAL SIGNIN
   passport.use("local-signin", new LocalStrategy(
       {
@@ -122,9 +108,10 @@ module.exports = function(user) {
         })
           .then(function(user) {
             if (!user) {
-              return done(null, false, {
-                message: "Email does not exist"
-              });
+              return done(null, false, req.flash(
+                'info',
+                "Email does not exist")
+              );
             }
 
             if (!isValidPassword(user.password, password)) {

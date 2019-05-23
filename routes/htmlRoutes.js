@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("passport");
+var flash = require('connect-flash');
 
 module.exports = function(app) {
 
@@ -17,7 +18,9 @@ module.exports = function(app) {
 
    // Render user Sign In page 
   app.get("/signin", function (req, res) {
-    res.render("signin");
+    var flashMessage = { messages: req.flash("info")[0]}
+    console.log(req.flash('info')[0]);
+    res.render("signin", flashMessage );
   });
 
    // Render dashboard page
@@ -36,6 +39,7 @@ module.exports = function(app) {
       });
     });
   });
+  
   app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
       res.redirect("/");
@@ -57,7 +61,8 @@ module.exports = function(app) {
 
   app.post("/signin", passport.authenticate("local-signin", {
     successRedirect: "/dashboard",
-    failureRedirect: "/signin"
+    failureRedirect: "/signin",
+    failureFlash: false
   })
   );
 
