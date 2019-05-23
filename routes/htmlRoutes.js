@@ -28,6 +28,9 @@ module.exports = function(app) {
    // Render dashboard page
   app.get("/dashboard", isLoggedIn, function(req, res) {
     db.Review.findAll({
+      where: {
+        UserId: req.user.id
+      },
       include: [
         {
           all: true,
