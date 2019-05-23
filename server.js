@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Flash middleware for messages
-
   app.use(cookieParser('keyboard cat'));
   app.use(session({ cookie: { maxAge: 60000 }}));
   app.use(flash());
