@@ -50,6 +50,8 @@ module.exports = function(app) {
         stars: req.body.stars,
         BeerId: dbBeer.id,
         UserId: req.user.id
+    }).then(function(dbReview){
+      res.json(dbReview);
     })
     });
   });
