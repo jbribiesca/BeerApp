@@ -33,7 +33,7 @@ module.exports = function(app) {
         }
       ]
     }).then(function(dbReview) {
-      console.log(dbReview)
+      console.log(dbReview);
       res.render("dashboard", {
         reviews: dbReview
       });

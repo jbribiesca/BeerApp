@@ -24,9 +24,10 @@ module.exports = function(user) {
     });
   });
 
-
   // Sign Up --- takes input and checks if email already exists. If it exists it will return a message to user, if not it goes ahead with inputting the new user's information into the database
-  passport.use("local-signup", new LocalStrategy(
+  passport.use(
+    "local-signup",
+    new LocalStrategy(
       {
         last_name: "last_name",
         first_name: "first_name",
@@ -62,19 +63,38 @@ module.exports = function(user) {
               zip: req.body.zip,
               birthday: req.body.birthday
             };
-            // console.log(data);
 
-            //check age -- 21 and up *******************
+//             // console.log(data);
+
+//             //check age -- 21 and up *******************
     
 
-            User.create(data).then(function(newUser, created) {
-              if (!newUser) {
-                return done(null, false);
-              }
-              if (newUser) {
-                return done(null, newUser);
-              }
-            });
+//             User.create(data).then(function(newUser, created) {
+//               if (!newUser) {
+//                 return done(null, false);
+//               }
+//               if (newUser) {
+//                 return done(null, newUser);
+//               }
+//             });
+
+            //------------Age Verification-----------------
+            var birthday = moment("birthday", "DD.MM.YYYY"),
+              age = moment().diff(birthday, "years");
+            console.log(age);
+            if (age <= 20) {
+              ("You are not old enough");
+            } else {
+              User.create(data).then(function(newUser, created) {
+                if (!newUser) {
+                  return done(null, false);
+                }
+                if (newUser) {
+                  return done(null, newUser);
+                }
+              });
+            }
+
           }
         });
       }
@@ -85,7 +105,9 @@ module.exports = function(user) {
 
   
   //LOCAL SIGNIN
-  passport.use("local-signin", new LocalStrategy(
+  passport.use(
+    "local-signin",
+    new LocalStrategy(
       {
         // by default, local strategy uses username and password, we will override with email
 
@@ -134,5 +156,3 @@ module.exports = function(user) {
     )
   );
 };
-
-

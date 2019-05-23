@@ -19,9 +19,9 @@
 
     <p>
       <div class="col-10 offset-3 justify-content-center d-flex h-100">
-        <form class="searchBar">
-          <input class="search_input" type="search" placeholder="Search" aria-label="Search" id="searchText">
-          <button class="search_icon" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
+        <form class="searchBarNav">
+          <input class="search_inputNav" type="search" placeholder="Search" aria-label="Search" id="searchText">
+          <button class="search_iconNav" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
         </form>
         <br>
       </div>
@@ -41,9 +41,11 @@
           <br>
           <br>
           <br>
-          <img src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg" alt="..."
+          <img id="profilePic" src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg" alt="..."
             class="rounded-circle">
-          <h5 class="card-title">Tom MySpace</h5>
+          <h5 class="card-title">
+           {{user.first_name}} {{user.last_name}} {{user.id}}
+          </h5>
           <p class="card-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
             type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
@@ -105,7 +107,7 @@
             <div class="card-center">
               <br>
               <h1 class="logo"><i class="fas fa-beer"></i> Recent Activity</h1>
-              <p class="card-text">"Checked-In Beers"</p>
+              <p class="card-text">Checked-In Beers</p>
             
                   {{#each reviews}}
                     <img src={{Beer.beerIMG}}></img>

@@ -43,12 +43,17 @@ $(document).ready(function() {
         beerImgTag.attr("src", beerImg);
 
         var beerButton = $("<button>");
-        beerButton.attr("beername", beerName);
-        beerButton.attr("beerabv", beerABV);
-        beerButton.attr("beertype", beerStyle);
-        beerButton.attr("breweryname", beerBrewery);
-        beerButton.attr("beerimg", beerImg);
-        beerButton.addClass("btn btn-primary checkin");
+        var beerButton2 = $("<button>");
+        beerButton2.attr("beername", beerName);
+        beerButton2.attr("beerabv", beerABV);
+        beerButton2.attr("beertype", beerStyle);
+        beerButton2.attr("breweryname", beerBrewery);
+        beerButton2.attr("beerimg", beerImg);
+        beerButton2.text("Review");
+        beerButton.addClass("btn btn-primary");
+        beerButton2.addClass("btn btn-primary checkin");
+        beerButton.attr("data-toggle", "modal");
+        beerButton.attr("data-target", "#exampleModal");
         beerButton.attr("style", "float: right");
         beerButton.html(
           "Check in Beer " + "<span><i class='fas fa-beer'></i></span>"
@@ -63,6 +68,7 @@ $(document).ready(function() {
         beerDivBody.append(beerDivTextStyle);
         beerDivBody.append(beerButton);
         $("#beer-body").append(beerDiv);
+        $("#beerbutton").replaceWith(beerButton2);
       }
     });
   });
@@ -74,6 +80,7 @@ $(document).ready(function() {
     var beerType = $(this).attr("beertype");
     var breweryname = $(this).attr("breweryname");
     var beerIMG = $(this).attr("beerimg");
+    var beerRating = $("#beerRating").val();
 
     var beerObj = {
       beer_name: beerName,
@@ -81,9 +88,9 @@ $(document).ready(function() {
       beer_type: beerType,
       brewery_name: breweryname,
       drank_beer: true,
-      beerIMG: beerIMG
+      beerIMG: beerIMG,
+      stars: beerRating
     };
-
     $.ajax("/api/beers", {
       type: "POST",
       data: beerObj
