@@ -2,7 +2,7 @@ $(document).ready(function() {
   var beerObj = {};
   $(document).on("click", "#searchBtn", function(event) {
     event.preventDefault();
-    console.log("clicked");
+    // console.log("clicked");
     $("#beer-body").empty();
     var searchQuery = $("#searchText").val();
     var queryURL = "/api/untapped/" + searchQuery;
@@ -11,7 +11,7 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       var beerArray = response.response.beers.items;
-      console.log(beerArray);
+      // console.log(beerArray);
       for (var i = 0; i < beerArray.length; i++) {
         var beerName = beerArray[i].beer.beer_name;
         var beerBrewery = beerArray[i].brewery.brewery_name;
