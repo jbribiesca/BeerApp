@@ -31,15 +31,15 @@
     </p>
   </div>
 </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <div>
-          {{> beers/beer-block}}
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div>
+        {{> beers/beer-block}}
       </div>
     </div>
   </div>
+</div>
 
 <!-- Profile User Cards -->
 <br>
@@ -122,15 +122,41 @@
 
               {{#each reviews}}
               <div class="card">
-                <div class="card-header"><p>{{Beer.beer_name}}</p></div>
+                <div class="card-header">
+                  <p>{{Beer.beer_name}}</p>
+                </div>
                 <div class="card-body"><img src={{Beer.beerIMG}} style="float:left"></img>
-                <p style="color: black">Rating (1-5): {{stars}}</p>
-                <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
+                  <p style="color: black">Rating (1-5): {{stars}}</p>
+                  <section class='rating-widget'>
+
+                    <!-- Rating Stars Box -->
+                    <div class='rating-stars text-center'>
+                      <ul id='stars'>
+                        <li class='star' title='Poor' data-value='1'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Fair' data-value='2'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Good' data-value='3'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Excellent' data-value='4'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='WOW!!!' data-value='5'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+
+                  <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
                 </div>
               </div>
-              
-            
-              
+
+
+
               {{/each}}
 
               <br>
@@ -151,19 +177,8 @@
       <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
       <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
       <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-
-
-
-
-
       <!-- CARD DECK TEST-->
-
-
-
       <!-- CARD DECK TEST-->
-
-
-
     </div>
 
 
@@ -171,3 +186,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/beer.js"></script>
+    <script src="js/ratings.js"></script>
