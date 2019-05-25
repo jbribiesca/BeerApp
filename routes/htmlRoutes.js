@@ -31,6 +31,7 @@ module.exports = function(app) {
       where: {
         UserId: req.user.id
       },
+      order: [["createdAt", "DESC"]],
       include: [
         {
           all: true,
