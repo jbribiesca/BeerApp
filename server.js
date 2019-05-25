@@ -37,7 +37,14 @@ app.engine("handlebars", exphbs({
   extname: ".handlebars" 
 }));
 app.set("view engine", "handlebars");
-
+var hbs = require('handlebars');
+hbs.registerHelper("addStars", function(value) {
+  var accum = "";
+    for (i =0; i < value; i++){
+      accum += "<li class='star selected' title='WOW!!!' data-value='5'><i class='fa fa-star fa-fw'></i></li>";
+    }
+    return new hbs.SafeString(accum)
+});
 
 // Override form method POST with ?_method=PUT
 var methodOverride = require("method-override");
