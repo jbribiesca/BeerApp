@@ -2,6 +2,8 @@
 $(document).ready(function() {
   // Create empty beerObj to use as a global variable
   var beerObj = {};
+
+  //CREATES BEER LIST
   $(document).on("click", "#searchBtn", function(event) {
     event.preventDefault();
     $("#beer-body").empty();
@@ -72,6 +74,8 @@ $(document).ready(function() {
         $("#beer-body").append(beerDiv);
         $("#beerbutton").replaceWith(beerButton2);
       }
+
+      //CHECK IN 
       // This is the click on Check in beer, it will get all of the objects i created above and create a beerObj (this does not have the star rating yet!!!)
       $(document).on("click", ".rate", function() {
         var beerName = $(this).attr("beername");
@@ -90,6 +94,8 @@ $(document).ready(function() {
       });
     });
   });
+
+  //DELETE checked in beer on dashboard
   $(document).on("click", ".delete", function(event) {
     // Delete event from the dashboard to delete a beer from the database. This will also delete all reviews associated with it from the DB
     event.preventDefault();
@@ -101,7 +107,7 @@ $(document).ready(function() {
     });
   });
 
-  /* 1. Visualizing things on Hover - See next part for action on click */
+  //STAR rating effect
   $("#stars li")
     .on("mouseover", function() {
       var onStar = parseInt($(this).data("value"), 10); // The star currently mouse on
@@ -127,7 +133,7 @@ $(document).ready(function() {
         });
     });
 
-  /* 2. Action to perform on click */
+  //STAR rating post to database
   $("#stars li").on("click", function() {
     // This will grab the star rating and append the star rating to the beerObj using extend function. This will post it to the DB and then open the /dashboard route
     var onStar = parseInt($(this).data("value"), 10); // The star currently selected
