@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 $(document).ready(function() {
   // Create empty beerObj to use as a global variable
   var beerObj = {};
@@ -73,20 +72,27 @@ $(document).ready(function() {
         $("#beerbutton").replaceWith(beerButton2);
       }
       // This is the click on Check in beer, it will get all of the objects i created above and create a beerObj (this does not have the star rating yet!!!)
+
+      console.log(username);
+
       $(document).on("click", ".rate", function() {
-        var beerName = $(this).attr("beername");
-        var beerABV = $(this).attr("beerabv");
-        var beerType = $(this).attr("beertype");
-        var breweryname = $(this).attr("breweryname");
-        var beerIMG = $(this).attr("beerimg");
-        beerObj = {
-          beer_name: beerName,
-          abv: beerABV,
-          beer_type: beerType,
-          brewery_name: breweryname,
-          drank_beer: true,
-          beerIMG: beerIMG
-        };
+        if (username) {
+          var beerName = $(this).attr("beername");
+          var beerABV = $(this).attr("beerabv");
+          var beerType = $(this).attr("beertype");
+          var breweryname = $(this).attr("breweryname");
+          var beerIMG = $(this).attr("beerimg");
+          beerObj = {
+            beer_name: beerName,
+            abv: beerABV,
+            beer_type: beerType,
+            brewery_name: breweryname,
+            drank_beer: true,
+            beerIMG: beerIMG
+          };
+        } else {
+          window.location = "/signin";
+        }
       });
     });
   });
