@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 $(document).ready(function() {
   // Create empty beerObj to use as a global variable
   var beerObj = {};
@@ -15,6 +16,7 @@ $(document).ready(function() {
     }).then(function(response) {
       // Build all of my objects and create the beer cards
       var beerArray = response.response.beers.items;
+      console.log(beerArray);
       for (var i = 0; i < beerArray.length; i++) {
         var beerName = beerArray[i].beer.beer_name;
         var beerBrewery = beerArray[i].brewery.brewery_name;
@@ -23,6 +25,7 @@ $(document).ready(function() {
         var beerIBU = beerArray[i].beer.beer_ibu;
         var beerStyle = beerArray[i].beer.beer_style;
         var beerImg = beerArray[i].beer.beer_label;
+        var beerID = beerArray[i].beer.bid;
 
         var beerDiv = $("<div>");
         beerDiv.addClass("card");
@@ -53,6 +56,7 @@ $(document).ready(function() {
         beerButton.attr("beertype", beerStyle);
         beerButton.attr("breweryname", beerBrewery);
         beerButton.attr("beerimg", beerImg);
+        beerButton.attr("beerid", beerID);
         beerButton2.text("Review");
         beerButton.addClass("btn btn-primary rate");
         beerButton2.addClass("btn btn-primary checkin");
@@ -86,13 +90,15 @@ $(document).ready(function() {
           var beerType = $(this).attr("beertype");
           var breweryname = $(this).attr("breweryname");
           var beerIMG = $(this).attr("beerimg");
+          var beerID = $(this).attr("beerid");
           beerObj = {
             beer_name: beerName,
             abv: beerABV,
             beer_type: beerType,
             brewery_name: breweryname,
             drank_beer: true,
-            beerIMG: beerIMG
+            beerIMG: beerIMG,
+            beerID: beerID
           };
         } else {
           window.location = "/signin";
