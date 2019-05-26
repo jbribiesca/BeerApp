@@ -66,6 +66,8 @@
         </div>
       </div>
     </div>
+
+    {{!-- Round Images  --}}
     <div class="col-sm-8">
       <div class="card-1">
         <div class="card-center">
@@ -77,49 +79,36 @@
           <div class="beer-circles">
             <img src="https://i.pinimg.com/originals/e4/36/27/e4362795026af41483df7d42d104fb53.jpg" alt="..."
               class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/1557686/pexels-photo-1557686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/338711/pexels-photo-338711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/1839942/pexels-photo-1839942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/267909/pexels-photo-267909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/1267681/pexels-photo-1267681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
-
           </div>
           <br>
           <br>
         </div>
       </div>
 
-
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+      {{!-- Checked-in Beers --}}
       <div class="row">
-
         <div class="col-sm-12">
-
           <br>
           <div class="card-1">
             <div class="card-center">
               <br>
               <h1 class="logo"><i class="fas fa-beer"></i> Recent Activity</h1>
               <p class="card-text">Checked-In Beers</p>
-
               {{#each reviews}}
               <div class="card">
                 <div class="card-header">
@@ -128,26 +117,17 @@
                 <div class="card-body"><img src={{Beer.beerIMG}} style="float:left"></img>
                   <p style="color: black">Beer Rating</p>
                   <section class='rating-widget'>
-                 
                     <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
                       <ul id='starss'>
-                           {{addStars stars}}
+                        {{addStars stars}}
                       </ul>
                     </div>
                   </section>
-
                   <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
                 </div>
               </div>
-
-
-
               {{/each}}
-
-              <br>
-              <br>
-              <br>
               <br>
               <br>
               <br>
@@ -158,13 +138,7 @@
             <br>
           </div>
         </div>
-
       </div>
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!-- CARD DECK TEST-->
-      <!-- CARD DECK TEST-->
     </div>
 
 
@@ -172,4 +146,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/beer.js"></script>
-    <script src="js/ratings.js"></script>
