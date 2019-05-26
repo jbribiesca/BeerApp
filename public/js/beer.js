@@ -143,6 +143,7 @@ $(document).ready(function() {
   $("#stars li").on("click", function() {
     // This will grab the star rating and append the star rating to the beerObj using extend function. This will post it to the DB and then open the /dashboard route
     var onStar = parseInt($(this).data("value"), 10); // The star currently selected
+    var reviewText = $("#reviewTextBox").val();
     console.log(onStar);
     var stars = $(this)
       .parent()
@@ -154,7 +155,10 @@ $(document).ready(function() {
       $(stars[i]).addClass("selected");
     }
     var tmpObj = beerObj;
-    $.extend(tmpObj, { stars: onStar });
+    $.extend(tmpObj, {
+      stars: onStar,
+      textReview: reviewText
+    });
     $.ajax("/api/beers", {
       type: "POST",
       data: tmpObj

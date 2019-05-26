@@ -48,6 +48,7 @@ module.exports = function (app) {
     }).then(function (dbBeer) {
       db.Review.create({
         stars: req.body.stars,
+        textReview: req.body.textReview,
         BeerId: dbBeer.id,
         UserId: req.user.id
       }).then(function (dbReview) {
