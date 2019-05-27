@@ -7,7 +7,7 @@ var cookieParser = require("cookie-parser");
 var passport = require("passport");
 var session = require("express-session");
 
-// var bodyParser = require("body-parser");
+
 
 var db = require("./models");
 var PORT = process.env.PORT || 8080;
@@ -55,9 +55,7 @@ hbs.registerHelper("addStars", function(value) {
   return new hbs.SafeString(accum);
 });
 
-// Override form method POST with ?_method=PUT
-var methodOverride = require("method-override");
-app.use(methodOverride("_method"));
+
 
 // Routes
 app.use(function(req, res, next) {
@@ -69,7 +67,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/passport.js")(db.User);
 
-var syncOptions = { force: false };
+var syncOptions = { force: true};
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
