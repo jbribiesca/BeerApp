@@ -142,8 +142,13 @@
                           {{addStars stars}}
                         </ul>
                       </div>
+                      {{#if textReview}}
                       <div>
                         <p style="color: black">Review: {{textReview}}</p>
+                      </div>
+                      {{/if}}
+                       <div>
+                        <a href="" class="facebook">Facebook</a>
                       </div>
                     </section>
                     <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
@@ -212,3 +217,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/beer.js"></script>
+<script>
+  var username = "{{user.first_name}}";
+</script>
