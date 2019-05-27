@@ -20,15 +20,15 @@
     <!--LOGINS  ON NAVBAR -->
     <p>
       {{#if user}}
-      <h5 style="color: white">Welcome, {{user.first_name}}! </h5>&nbsp;
-      <a class="btn btn-outline-light" href="/dashboard" role="button" aria-expanded="false" aria-controls="signUp">
-        Dashboard
+      <h5 id="welcomeHeader">Welcome, {{user.first_name}}! </h5>&nbsp;
+      <a class="btn btn-burp btnFix" href="/dashboard" role="button" aria-expanded="false" aria-controls="signUp">
+        DASHBOARD
       </a>
       {{else}}
-      <a class="btn btn-outline-light" href="/signup" role="button" aria-expanded="false" aria-controls="signUp">
+      <a class="btn btn-burp" href="/signup" role="button" aria-expanded="false" aria-controls="signUp">
         CREATE AN ACCOUNT
       </a>
-      <a class="btn btn-outline-light" href="/signin" role="button" aria-expanded="false" aria-controls="logIn">
+      <a class="btn btn-burp" href="/signin" role="button" aria-expanded="false" aria-controls="logIn">
         SIGN IN
       </a>
       {{/if}}
