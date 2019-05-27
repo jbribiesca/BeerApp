@@ -46,11 +46,11 @@ hbs.registerHelper("addStars", function(value) {
   var tmpVal = 5 - value;
   for (i = 0; i < value; i++) {
     accum +=
-      "<li class='star selected' title='WOW!!!' data-value='5'><i class='fa fa-star fa-fw'></i></li>";
+      "<li class='star selected' title='BURP!' data-value='5'><i class='fas fa-beer'></i></li>";
   }
   for (i = 0; i < tmpVal; i++) {
     accum +=
-      "<li class='star' title='WOW!!!' data-value='5'><i class='fa fa-star fa-fw'></i></li>";
+      "<li class='star' title='BURP!' data-value='5'><i class='fas fa-beer'></i></li>";
   }
   return new hbs.SafeString(accum);
 });
