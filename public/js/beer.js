@@ -25,7 +25,7 @@ $(document).ready(function() {
         var beerBreweryLink = beerArray[i].brewery.contact.url;
         var beerABV = beerArray[i].beer.beer_abv;
         var beerIBU = beerArray[i].beer.beer_ibu;
-        var beerStyle = beerArray[i].beer.beer_style;f
+        var beerStyle = beerArray[i].beer.beer_style;
         beerImg = beerArray[i].beer.beer_label;
         var beerID = beerArray[i].beer.bid;
 
