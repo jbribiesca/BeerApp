@@ -15,8 +15,12 @@
       </div>
       <div class="modal-body">
         <section class='rating-widget'>
-
+          <div class="form-group">
+            <label for="reviewTextBox">Add a text review! (optional)</label>
+            <textarea class="form-control" id="reviewTextBox" rows="3"></textarea>
+          </div>
           <!-- Rating Stars Box -->
+          <p>Click on the star to submit the review!</p>
           <div class='rating-stars text-center'>
             <ul id='stars'>
               <li class='star' title='Poor' data-value='1'>
@@ -37,6 +41,7 @@
             </ul>
           </div>
         </section>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

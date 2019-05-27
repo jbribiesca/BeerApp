@@ -1,4 +1,5 @@
-module.exports = function (sequelize, DataTypes) {
+/* eslint-disable camelcase */
+module.exports = function(sequelize, DataTypes) {
   var Beer = sequelize.define("Beer", {
     beer_name: {
       type: DataTypes.STRING,
@@ -34,11 +35,15 @@ module.exports = function (sequelize, DataTypes) {
     beerIMG: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    beerID: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
 
   //Join beer table to review table
-  Beer.associate = function (models) {
+  Beer.associate = function(models) {
     Beer.hasMany(models.Review, {
       onDelete: "cascade"
     });
