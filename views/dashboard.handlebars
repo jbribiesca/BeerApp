@@ -121,13 +121,16 @@
                   <p>{{Beer.beer_name}}</p>
                 </div>
                 <div class="card-body"><img src={{Beer.beerIMG}} style="float:left"></img>
-                  <p style="color: black">Beer Rating</p>
+                  <p style="color: black">Beer Rating:</p>
                   <section class='rating-widget'>
                     <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
                       <ul id='starss'>
                         {{addStars stars}}
                       </ul>
+                    </div>
+                    <div>
+                      <p style="color: black">Review: {{textReview}}</p>
                     </div>
                   </section>
                   <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
