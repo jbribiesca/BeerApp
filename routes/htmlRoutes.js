@@ -1,7 +1,8 @@
 var db = require("../models");
 var passport = require("passport");
+var flash = require('connect-flash');
 
-module.exports = function (app) {
+module.exports = function(app) {
 
   // GET Routes
 
@@ -12,19 +13,39 @@ module.exports = function (app) {
 
    // Render user Sign Up page 
   app.get("/signup", function (req, res) {
-    res.render("signup");
+    let flashMessage = { messages: req.flash("info")[0]}
+    console.log(req.flash('info')[0]);
+    res.render("signup", flashMessage);
   });
 
    // Render user Sign In page 
   app.get("/signin", function (req, res) {
-    res.render("signin");
+    let flashMessage = { messages: req.flash("info")[0]}
+    console.log(req.flash('info')[0]);
+    res.render("signin", flashMessage);
   });
 
    // Render dashboard page
-  app.get("/dashboard", isLoggedIn, function (req, res) {
-    res.render("dashboard");
+  app.get("/dashboard", isLoggedIn, function(req, res) {
+    db.Review.findAll({
+      where: {
+        UserId: req.user.id
+      },
+      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          all: true,
+          nested: true
+        }
+      ]
+    }).then(function(dbReview) {
+      // console.log(dbReview);
+      res.render("dashboard", {
+        reviews: dbReview
+      });
+    });
   });
-
+  
   app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
       res.redirect("/");
@@ -40,13 +61,15 @@ module.exports = function (app) {
   
   app.post("/signup", passport.authenticate("local-signup", {
     successRedirect: "/dashboard",
-    failureRedirect: "/signup"
+    failureRedirect: "/signup",
+    failureFlash: false
   })
   );
 
   app.post("/signin", passport.authenticate("local-signin", {
     successRedirect: "/dashboard",
-    failureRedirect: "/signin"
+    failureRedirect: "/signin",
+    failureFlash: false
   })
   );
 

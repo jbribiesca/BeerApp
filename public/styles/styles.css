@@ -1,7 +1,7 @@
-body{
+body {
   background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-color: black;
 }
 
@@ -9,32 +9,32 @@ body{
   line-height: 2.5;
 }
 
-.jumbotron{
-  
+.jumbotron {
+
   text-align: center;
   background-color: transparent;
 }
 
-.logo{
+.logo {
   font-family: 'Pacifico', cursive;
   color: #f15f22;
 }
 
-.logo2{
+.logo2 {
   font-family: 'Pacifico', cursive;
   color: #f15f22;
 }
 
-.row{
+.row {
   text-align: center;
 }
 
-.container{
+.container {
   text-align: center;
 }
 
 /* Profile Card*/
-.card-left{
+.card-left {
   background-color: #F15F22;
   background-size: cover;
   padding-left: 10px;
@@ -42,36 +42,36 @@ body{
 }
 
 /* Beer History */
-.card-center{
+.card-center {
   background-color: #353b48;
-  
-  
- 
+
+
+
 
 
 }
 
 /* Beer Cards */
-.card-header{
+.card-header {
   background-color: #F15F22;
   color: white;
 }
 
-.beer-circles{
-  
+.beer-circles {
+
   display: inline;
   background-color: #353b48;
   margin-right: 5px;
 }
 
 
-.card{
-margin-bottom: 10px;
+.card {
+  margin-bottom: 10px;
 }
 
 
 /* Cards */
-.card-1{
+.card-1 {
   background-color: transparent;
   color: white;
   text-align: center;
@@ -122,40 +122,160 @@ margin-bottom: 10px;
   border-radius: 50%;
   color: #F15F22;
 }
-
 /* End dynamic search style */
 
+.card-center {
+  background-color: #353b48;
+  border-radius: 5px;
+  border: white;
+  border-width: 2px;
+  border-style: solid;
+}
 
-@media (max-width: 576px) { 
+.card-left {
+  background-color: #F15F22;
+  background-size: cover;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: white;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+
+      /* Rating Star Widgets Style */
+      .rating-stars ul {
+        list-style-type: none;
+        padding: 0;
+
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .rating-stars ul>li.star {
+        display: inline-block;
+
+    }
+
+    /* Idle State of the stars */
+    .rating-stars ul>li.star>i.fa {
+        font-size: 2.5em;
+        /* Change the size of the stars */
+        color: #ccc;
+        /* Color on idle state */
+    }
+
+    /* Hover state of the stars */
+    .rating-stars ul>li.star.hover>i.fa {
+        color: #FFCC36;
+    }
+
+    /* Selected state of the stars */
+    .rating-stars ul>li.star.selected>i.fa {
+        color: rgb(238, 191, 52);
+    }
+
+
+    
+/* Static search bar for dashboard */
+
+.searchBarNav {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 70px;
+  border-radius: 30px;
+  border-color: #F15F22;
+  border-style: solid;
+  padding: 10px;
+}
+
+.search_inputNav {
+  color: white;
+  font-size: 30px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 450px;
+  caret-color: transparent;
+  line-height: 40px;
+}
+
+/* .searchBarNav:hover>.search_iconNav {
+  background: white;
+  color: #F15F22;
+} */
+
+.search_iconNav {
+  height: 50px;
+  width: 50px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #F15F22;
+}
+
+/* End static search bard for dashboard */
+
+
+
+/* Media Queries */
+
+@media (max-width: 995px) {
+  #profilePic {
+    width: 125px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  #profilePic {
+    width: 190px;
+  }
 
   .searchBar:hover>.search_input {
     width: 230px;
-    
+
   }
+
+  /* .searchBarNav:hover>.search_inputNav {
+    width: 230px;
+
+  } */
 
   .search_input {
     font-size: 25px;
   }
-  
+
+  .search_inputNav {
+    font-size: 25px;
+    width: 230px;
+  }
+
   .search_icon {
     height: 45px;
     width: 45px;
-    
+
   }
 
   .searchBar {
-   
     height: 65px;
   }
+  
+  .searchBarNav {
+    height: 65px;
+    width: 230px;
+  }
 
-  .header-text{
+  .header-text {
     font-size: 15px;
   }
 
-  body{
+  body {
     background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: 1000px;
-    
-    background-repeat: no-repeat; 
+
+    background-repeat: no-repeat;
   }
 }

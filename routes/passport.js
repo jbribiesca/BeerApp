@@ -3,6 +3,7 @@ var bCrypt = require("bcrypt-nodejs");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var db = require("../models");
+var moment = require("moment");
 
 module.exports = function(user) {
   var User = user;
@@ -14,7 +15,7 @@ module.exports = function(user) {
 
   // deserialize user
   passport.deserializeUser(function(id, done) {
-    db.User.findById(id).then(function(user) {
+    db.User.findByPk(id).then(function(user) {
       if (user) {
         done(null, user.get());
       } else {
@@ -23,7 +24,10 @@ module.exports = function(user) {
     });
   });
 
-  passport.use("local-signup",new LocalStrategy(
+  // Sign Up --- takes input and checks if email already exists. If it exists it will return a message to user, if not it goes ahead with inputting the new user's information into the database
+  passport.use(
+    "local-signup",
+    new LocalStrategy(
       {
         last_name: "last_name",
         first_name: "first_name",
@@ -45,9 +49,11 @@ module.exports = function(user) {
           }
         }).then(function(user) {
           if (user) {
-            return done(null, false, {
-              message: "That email is already taken"
-            });
+            return done(null, false, 
+              req.flash(
+                'info',
+                "That email is already taken")
+            );
           } else {
             var userPassword = generateHash(password);
             var data = {
@@ -58,22 +64,49 @@ module.exports = function(user) {
               zip: req.body.zip,
               birthday: req.body.birthday
             };
-            console.log(data);
 
-            User.create(data).then(function(newUser, created) {
-              if (!newUser) {
-                return done(null, false);
-              }
-              if (newUser) {
-                return done(null, newUser);
-              }
-            });
+//             // console.log(data);
+
+//             //check age -- 21 and up *******************
+    
+
+//             User.create(data).then(function(newUser, created) {
+//               if (!newUser) {
+//                 return done(null, false);
+//               }
+//               if (newUser) {
+//                 return done(null, newUser);
+//               }
+//             });
+
+            //------------Age Verification-----------------
+            var birthday = moment("birthday", "DD.MM.YYYY"),
+              age = moment().diff(birthday, "years");
+            console.log(age);
+            if (age <= 20) {
+              // ("You are not old enough");
+              return done(null, false, 
+                req.flash(
+                  'info',
+                  "You are not old enough")
+              );
+            } else {
+              User.create(data).then(function(newUser, created) {
+                if (!newUser) {
+                  return done(null, false);
+                }
+                if (newUser) {
+                  return done(null, newUser);
+                }
+              });
+            }
           }
         });
       }
     )
   );
 
+  
   //LOCAL SIGNIN
   passport.use(
     "local-signin",
@@ -100,15 +133,19 @@ module.exports = function(user) {
         })
           .then(function(user) {
             if (!user) {
-              return done(null, false, {
-                message: "Email does not exist"
-              });
+              return done(null, false, 
+                req.flash(
+                'info',
+                "Email does not exist")
+              );
             }
 
             if (!isValidPassword(user.password, password)) {
-              return done(null, false, {
-                message: "Incorrect password."
-              });
+              return done(null, false, 
+                req.flash(
+                  'info',
+                  "Incorrect password.")
+                );
             }
 
             var userinfo = user.get();
@@ -117,9 +154,11 @@ module.exports = function(user) {
           .catch(function(err) {
             console.log("Error:", err);
 
-            return done(null, false, {
-              message: "Something went wrong with your Signin"
-            });
+            return done(null, false, 
+              req.flash(
+                'info',
+                "Something went wrong with your Signin")
+              );
           });
       }
     )

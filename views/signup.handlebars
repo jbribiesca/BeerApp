@@ -1,9 +1,36 @@
+
+<!-- Container for Landing Page Header (Bootstrap-> Components-> Jumbotron-> Fluid)-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">
+    <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merchandise<span
+            class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+
+
+    <!--LOGINS RIGHT SIDE ON NAVBAR -->
+      <a class="btn btn-outline-light" href="/signin" role="button" aria-expanded="false" aria-controls="logIn">
+        SIGN IN
+      </a>
+    </p>
+  </div>
+</nav>
+
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
 
             <!-- Sign-up card content  form  (Bootstrap-> Components-> Form-> Form Row and validation) -->
-            {{!-- <div class="collapse" id="signUp"> --}}
             <div class="card card-body">
                 <h1 class="logo2"><i class="fas fa-beer"></i> Account</h1>
                 <br>
@@ -62,10 +89,8 @@
                         </div>
                     </div>
                 </form>
-
+                <div> {{messages}}</div>
             </div>
-            {{!-- </div> --}}
-
         </div>
     </div>
 </div>
@@ -75,28 +100,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/form-validation.js"></script>
 
-
-{{!-- 
-
-    <form id="signup" name="signup" method="post" action="/signup">
-    
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="email" />
-
-        <label for="first_name">Firstname</label>
-        <input name="first_name" type="text" />
-
-        <label for="last_name">Lastname</label>
-        <input name="last_name" type="text" />
-
-        <label for="birthday">Birthday</label>
-        <input name="birthday" type="date" />
-
-        <label for="zip">Zip</label>
-        <input name="zip" type="number" />
-
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-
-        <input class="btn" type="submit" value="Sign Up" />
-    </form> --}}

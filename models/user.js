@@ -55,5 +55,13 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: "active"
     }
   });
+
+  //Join user table to review table
+  User.associate = function (models) {
+    User.hasMany(models.Review, {
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };

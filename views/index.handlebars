@@ -1,6 +1,6 @@
 <!-- Container for Landing Page Header (Bootstrap-> Components-> Jumbotron-> Fluid)-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/views/index.handlebars">
+  <a class="navbar-brand" href="/">
     <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -17,14 +17,21 @@
     </ul>
 
 
-    <!--LOGINS RIGHT SIDE ON NAVBAR -->
+    <!--LOGINS  ON NAVBAR -->
     <p>
+      {{#if user}}
+      <h5 style="color: white">Welcome, {{user.first_name}}! </h5>&nbsp;
+      <a class="btn btn-outline-light" href="/dashboard" role="button" aria-expanded="false" aria-controls="signUp">
+        Dashboard
+      </a>
+      {{else}}
       <a class="btn btn-outline-light" href="/signup" role="button" aria-expanded="false" aria-controls="signUp">
         CREATE AN ACCOUNT
       </a>
       <a class="btn btn-outline-light" href="/signin" role="button" aria-expanded="false" aria-controls="logIn">
         SIGN IN
       </a>
+      {{/if}}
     </p>
   </div>
 </nav>
@@ -37,7 +44,8 @@
       <div class="card-body">
         <br>
         <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
-        <p class="card-text">"Discover more beers, breweries & styles... Click on our mug! "</p>
+        <p class="card-text">Discover more beers, breweries & styles... Click on our mug! </p>
+        <div id="user2"></div>
       </div>
     </div>
   </div>
@@ -45,7 +53,7 @@
   <!-- TEST -->
   <div id="home" class="jumbotron jumbotron-fluid"></div>
 
-  <!-- ADD SEARCH BAR HERE -->
+  <!--SEARCH BAR HERE -->
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2 justify-content-center d-flex h-100">
@@ -59,7 +67,7 @@
     <br>
   </div>
 
-
+<!-- BEER LIST -->
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
@@ -75,3 +83,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="js/form-validation.js"></script>
   <script src="js/beer.js"></script>
+<script>
+  var username = "{{user.first_name}}";
+</script>

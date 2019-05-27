@@ -1,7 +1,7 @@
 <!-- NAVBAR with Brand Name and Merch (Bootstrap-> Components-> Jumbotron-> Fluid)-->
 <!-- http://localhost:8080/user -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/views/index.handlebars">
+  <a class="navbar-brand" href="/">
     <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -19,17 +19,27 @@
 
     <p>
       <div class="col-10 offset-3 justify-content-center d-flex h-100">
-        <form class="searchBar">
-          <input class="search_input" type="search" placeholder="Search" aria-label="Search" id="searchText">
-          <button class="search_icon" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
+        <form class="searchBarNav">
+          <input class="search_inputNav" type="search" placeholder="Search" aria-label="Search" id="searchText">
+          <button class="search_iconNav" type="submit" id="searchBtn"><i class="fas fa-beer"></i></button>
         </form>
         <br>
+        <p><a class="btn btn-outline-light" href="/logout" role="button" aria-expanded="false" aria-controls="logIn">
+            LOGOUT
+          </a></p>
       </div>
     </p>
-    
   </div>
-
 </nav>
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div>
+        {{> beers/beer-block}}
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Profile User Cards -->
 <br>
@@ -41,9 +51,18 @@
           <br>
           <br>
           <br>
+<<<<<<< HEAD
           <img src="https://media.licdn.com/dms/image/C4E03AQE9oB5pkjva6w/profile-displayphoto-shrink_800_800/0?e=1564012800&v=beta&t=bGVFE5PNh2Kc0XTynhGgDX-4vZzJc20-IVKu0C0R45g" alt="..."
             class="rounded-circle" width="250px" height="250px" >
           <h5 class="card-title">Jerry Bribiesca</h5>
+=======
+          <img id="profilePic"
+            src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg" alt="..."
+            class="rounded-circle">
+          <h5 class="card-title">
+            {{user.first_name}} {{user.last_name}}
+          </h5>
+>>>>>>> 4382283eb9228e64a37740bec1264c449b7739c0
           <p class="card-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
             type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
@@ -53,6 +72,8 @@
         </div>
       </div>
     </div>
+
+    {{!-- Round Images  --}}
     <div class="col-sm-8">
       <div class="card-1">
         <div class="card-center">
@@ -64,51 +85,55 @@
           <div class="beer-circles">
             <img src="https://i.pinimg.com/originals/e4/36/27/e4362795026af41483df7d42d104fb53.jpg" alt="..."
               class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/1557686/pexels-photo-1557686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/338711/pexels-photo-338711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/1839942/pexels-photo-1839942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/267909/pexels-photo-267909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
             <img
               src="https://images.pexels.com/photos/1267681/pexels-photo-1267681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="..." class="rounded-circle" width="100px" height="100px">
-
-
           </div>
           <br>
           <br>
         </div>
       </div>
 
-
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
+      {{!-- Checked-in Beers --}}
       <div class="row">
-
         <div class="col-sm-12">
-
           <br>
           <div class="card-1">
             <div class="card-center">
               <br>
               <h1 class="logo"><i class="fas fa-beer"></i> Recent Activity</h1>
-              <p class="card-text">"Checked-In Beers"</p>
-              <br>
-              <br>
-              <br>
+              <p class="card-text">Checked-In Beers</p>
+              {{#each reviews}}
+              <div class="card">
+                <div class="card-header">
+                  <p>{{Beer.beer_name}}</p>
+                </div>
+                <div class="card-body"><img src={{Beer.beerIMG}} style="float:left"></img>
+                  <p style="color: black">Beer Rating</p>
+                  <section class='rating-widget'>
+                    <!-- Rating Stars Box -->
+                    <div class='rating-stars text-center'>
+                      <ul id='starss'>
+                        {{addStars stars}}
+                      </ul>
+                    </div>
+                  </section>
+                  <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
+                </div>
+              </div>
+              {{/each}}
               <br>
               <br>
               <br>
@@ -119,28 +144,11 @@
             <br>
           </div>
         </div>
-
       </div>
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-      <!--  PLACE HOLDER FOR CHECKED IN BEERS-->
-
-
-
-
-
-      <!-- CARD DECK TEST-->
-
-
-
-      <!-- CARD DECK TEST-->
-
-
-
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="../public/js/user.js"></script>
+    <script src="js/beer.js"></script>
