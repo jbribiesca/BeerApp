@@ -5,6 +5,12 @@ body {
   background-color: black;
 }
 
+
+
+.dashboard{
+  background-image: url("https://images.pexels.com/photos/1464825/pexels-photo-1464825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -89,6 +95,7 @@ body {
 }
 
 
+
 .card {
   margin-top: 10px;
 }
@@ -113,6 +120,7 @@ body {
 }
 
 .search_input {
+  padding: 0 2px;
   color: white;
   font-size: 30px;
   border: 0;
@@ -121,13 +129,14 @@ body {
   width: 0;
   caret-color: transparent;
   line-height: 40px;
-  transition: width 1s linear;
+  transition: width 800s linear;
 }
 
 .searchBar:hover>.search_input {
-  padding: 0 10px;
+  padding: 0 2px;
   width: 450px;
   caret-color: #F15F22;
+  background: transparent;
   transition: width 1s linear;
 }
 
@@ -254,14 +263,14 @@ body {
 
 @media (max-width: 995px) {
   #profilePic {
-    width: 125px;
+    width: 300px;
   }
 }
 
 @media (max-width: 576px) {
 
   #profilePic {
-    width: 190px;
+    width: 300px;
   }
 
   .searchBar:hover>.search_input {
