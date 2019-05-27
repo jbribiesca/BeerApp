@@ -2,6 +2,8 @@
 $(document).ready(function() {
   // Create empty beerObj to use as a global variable
   var beerObj = {};
+  var beerName = "";
+  var beerImg = "";
 
   //CREATES BEER LIST
   $(document).on("click", "#searchBtn", function(event) {
@@ -18,13 +20,13 @@ $(document).ready(function() {
       var beerArray = response.response.beers.items;
       console.log(beerArray);
       for (var i = 0; i < beerArray.length; i++) {
-        var beerName = beerArray[i].beer.beer_name;
+        beerName = beerArray[i].beer.beer_name;
         var beerBrewery = beerArray[i].brewery.brewery_name;
         var beerBreweryLink = beerArray[i].brewery.contact.url;
         var beerABV = beerArray[i].beer.beer_abv;
         var beerIBU = beerArray[i].beer.beer_ibu;
-        var beerStyle = beerArray[i].beer.beer_style;
-        var beerImg = beerArray[i].beer.beer_label;
+        var beerStyle = beerArray[i].beer.beer_style;f
+        beerImg = beerArray[i].beer.beer_label;
         var beerID = beerArray[i].beer.bid;
 
         var beerDiv = $("<div>");
@@ -119,6 +121,24 @@ $(document).ready(function() {
     });
   });
 
+  $(document).on("click", ".facebook", function(event) {
+    event.preventDefault();
+    var burpURL = "http://burp.com";
+    shareFacebook(burpURL, beerName, beerImg);
+  });
+
+  function shareFacebook(url, text, image) {
+    open(
+      "https://facebook.com/sharer.php?s=100&p[url]=" +
+        url +
+        "&p[images][0]=" +
+        image +
+        "&p[title]=" +
+        text,
+      "fbshare",
+      "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0"
+    );
+  }
   //STAR rating effect
   $("#stars li")
     .on("mouseover", function() {
