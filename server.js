@@ -7,8 +7,6 @@ var cookieParser = require("cookie-parser");
 var passport = require("passport");
 var session = require("express-session");
 
-
-
 var db = require("./models");
 var PORT = process.env.PORT || 8080;
 
@@ -32,14 +30,13 @@ app.use(passport.session()); // persistent login sessions
 
 //For Handlebars
 app.set("views", "./views");
-app.engine(
-  "handlebars",
-  exphbs({
+app.engine("handlebars", exphbs({
     defaultLayout: "main",
     extname: ".handlebars"
   })
 );
 app.set("view engine", "handlebars");
+
 var hbs = require("handlebars");
 hbs.registerHelper("addStars", function(value) {
   var accum = "";
@@ -67,7 +64,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/passport.js")(db.User);
 
-var syncOptions = { force: true};
+var syncOptions = { force: false};
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
