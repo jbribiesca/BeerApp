@@ -1,13 +1,51 @@
 body {
   background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-color: black;
   overflow-x: hidden;
 }
 
-.dashboard{
-  background-image: url("https://images.pexels.com/photos/1464825/pexels-photo-1464825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+#imgJose{
+  width: 130px;
+  height: 130px;
+
+}
+
+#imgOnix{
+  width: 130px;
+  height: 130px;
+}
+
+#imgNina{
+  width: 130px;
+  height: 130px;
+}
+
+#imgShane{
+  width: 130px;
+  height: 130px;
+}
+
+#imgEric{
+  width: 130px;
+  height: 130px;
+}
+
+#imgBrandy{
+  width: 130px;
+  height: 130px;
+}
+
+#imgStephanie{
+  width: 130px;
+  height: 130px;
+}
+
+#imgDustin{
+  width: 130px;
+  height: 130px;
 }
 
 .list-group-item {
@@ -303,6 +341,7 @@ body {
 
   .searchBar:hover>.search_input {
     width: 230px;
+    
 
   }
 
@@ -316,8 +355,8 @@ body {
   }
 
   .search_inputNav {
-    font-size: 25px;
-    width: 230px;
+    font-size: 20px;
+    width: 130px;
   }
 
   .search_icon {
@@ -341,8 +380,14 @@ body {
 
   body {
     background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-size: 1000px;
-
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    background-color: black;
+  }
+
+  .col-10.offset-3.justify-content-center.d-flex.h-100{
+      margin-left: 30px;
+
   }
 }
