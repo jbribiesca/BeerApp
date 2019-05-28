@@ -15,8 +15,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merchandise<span
+        <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merch<span
             class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="https://www.uber.com/">Uber<span
+            class="sr-only"></span></a>
       </li>
     </ul>
 
@@ -96,26 +100,28 @@
                 <br>
                 <div class="beer-circles">
                   <img src="https://avatars1.githubusercontent.com/u/46248532?s=460&v=4" alt="..."
-                    class="rounded-circle" width="130px" height="130px">
+                    class="rounded-circle" id="imgJose">
+                  
+
                   <img src="https://avatars2.githubusercontent.com/u/44590738?s=460&v=4" alt="..."
-                    class="rounded-circle" width="130px" height="130px">
+                    class="rounded-circle" id="imgOnix">
                   <img
                     src="https://media.licdn.com/dms/image/C5603AQEcZe517GY7fA/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=DVw5268eq8OKLTaba0mENz-1dFqEMWrnl65dt8XrT28"
-                    alt="..." class="rounded-circle" width="130px" height="130px">
+                    alt="..." class="rounded-circle" id="imgNina">
                   <img src="https://avatars2.githubusercontent.com/u/46302313?s=460&v=4" alt="..."
-                    class="rounded-circle" width="130px" height="130px">
+                    class="rounded-circle" id="imgShane">
                   <img
                     src="https://media.licdn.com/dms/image/C5603AQHALeFEd9Q9AQ/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=VagFTPTdxp245amhpWXwmSy1q06-trctj4DGqVwrhHI"
-                    alt="..." class="rounded-circle" width="130px" height="130px">
+                    alt="..." class="rounded-circle" id="imgEric">
                   <img
                     src="https://media.licdn.com/dms/image/C4E03AQESw6V_VhoAVg/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=KmGgIBL_5CJs3CLdo6vvN-noBkFalfTxFMwq22KMqsI"
-                    alt="..." class="rounded-circle" width="130px" height="130px">
+                    alt="..." class="rounded-circle" id="imgBrandy">
                   <img
                     src="https://media.licdn.com/dms/image/C4E03AQFMlfO_BY2R6w/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=kb2PMz03c70l0F9DDMsdPpv0angmtSmi-oG1BGhYvyw"
-                    alt="..." class="rounded-circle" width="130px" height="130px">
+                    alt="..." class="rounded-circle" id="imgStephanie">
                   <img
                     src="https://media.licdn.com/dms/image/C4E03AQFCRtTUqlsakw/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=IoMkBg_8IEy7Jd7iwmDULNHgdf6mmx0fKX6Jr_aJbO4"
-                    alt="..." class="rounded-circle" width="130px" height="130px">
+                    alt="..." class="rounded-circle" id="imgDustin">
                 </div>
                 <br>
 
@@ -197,7 +203,7 @@
                         <a href="" class="facebook"><i class="fab fa-facebook-square"></i></a>
                       </div>
                     </section>
-                    <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
+                    <button data-attr="{{Beer.id}}" class="btn btn-danger delete" style="float:right"><i class="fas fa-trash-alt"></i></button>
                   </div>
                 </div>
                 {{/each}}
