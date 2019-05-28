@@ -54,6 +54,7 @@ $(document).ready(function() {
   $(document).on("click", "#searchBtn", function(event) {
     event.preventDefault();
     $("#beer-body").empty();
+    $("#trendingbeers").empty();
     // Grab search and post it to untapped API which goes to apiroute
     var searchQuery = $("#searchText").val();
     var queryURL = "/api/untapped/" + searchQuery;
