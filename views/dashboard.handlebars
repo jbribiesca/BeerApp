@@ -1,25 +1,24 @@
 <!-- NAVBAR with Brand Name and Merch (Bootstrap-> Components-> Jumbotron-> Fluid)-->
 <!-- http://localhost:8080/dashboard -->
 
-<body
-  style="background-image: url(https://images.pexels.com/photos/1323593/pexels-photo-1323593.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">
-      <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">
+    <h1 class="logo"><i class="fas fa-beer"></i> Burp!</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merchandise<span
-              class="sr-only">(current)</span></a>
-        </li>
-      </ul>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="https://www.instagram.com/official_burp_app/">Merchandise<span
+            class="sr-only">(current)</span></a>
+      </li>
+    </ul>
 
     <p>
       <div class="col-10 offset-3 justify-content-center d-flex h-100">
@@ -35,17 +34,21 @@
     </p>
   </div>
 </nav>
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div>
-        {{> beers/beer-block}}
+
+<!-- Dashboard Background Image -->
+
+<body
+  style="background-image: url(https://images.pexels.com/photos/1464825/pexels-photo-1464825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <div>
+          {{> beers/beer-block}}
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-       
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
@@ -70,16 +73,62 @@
               src="https://media.licdn.com/dms/image/C4E03AQE9oB5pkjva6w/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=09fcIuTQbiabxWT8FMnyOnKD1mhL2H90G_U7zTLuHLk"
               alt="..." class="rounded-circle" width="300px" height="300px">
             <h5 class="card-title">
+              <br>
               {{user.first_name}} {{user.last_name}}
             </h5>
-            <p class="card-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-              leap into electronic typesetting, remaining essentially unchanged. "</p>
+            <p class="card-text">"Never take advice from me, you'll end up DRUNK."</p>
+            <p>Male<br>33 years old<br>Arlington, TX<br>
+            </p>
+
 
             <br>
           </div>
         </div>
+
+        <!-- Friends Cards -->
+        <div>
+          <br>
+          <div class="col-sm-13">
+            <div class="card-4">
+              <div class="card-center">
+                <br>
+                <h1 class="logo"><i class="fas fa-beer"></i> Friends</h1>
+                <br>
+                <div class="beer-circles">
+                  <img src="https://avatars1.githubusercontent.com/u/46248532?s=460&v=4" alt="..."
+                    class="rounded-circle" width="130px" height="130px">
+                  <img src="https://avatars2.githubusercontent.com/u/44590738?s=460&v=4" alt="..."
+                    class="rounded-circle" width="130px" height="130px">
+                  <img
+                    src="https://media.licdn.com/dms/image/C5603AQEcZe517GY7fA/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=DVw5268eq8OKLTaba0mENz-1dFqEMWrnl65dt8XrT28"
+                    alt="..." class="rounded-circle" width="130px" height="130px">
+                  <img src="https://avatars2.githubusercontent.com/u/46302313?s=460&v=4" alt="..."
+                    class="rounded-circle" width="130px" height="130px">
+                  <img
+                    src="https://media.licdn.com/dms/image/C5603AQHALeFEd9Q9AQ/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=VagFTPTdxp245amhpWXwmSy1q06-trctj4DGqVwrhHI"
+                    alt="..." class="rounded-circle" width="130px" height="130px">
+                  <img
+                    src="https://media.licdn.com/dms/image/C4E03AQESw6V_VhoAVg/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=KmGgIBL_5CJs3CLdo6vvN-noBkFalfTxFMwq22KMqsI"
+                    alt="..." class="rounded-circle" width="130px" height="130px">
+                  <img
+                    src="https://media.licdn.com/dms/image/C4E03AQFMlfO_BY2R6w/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=kb2PMz03c70l0F9DDMsdPpv0angmtSmi-oG1BGhYvyw"
+                    alt="..." class="rounded-circle" width="130px" height="130px">
+                  <img
+                    src="https://media.licdn.com/dms/image/C4E03AQFCRtTUqlsakw/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=IoMkBg_8IEy7Jd7iwmDULNHgdf6mmx0fKX6Jr_aJbO4"
+                    alt="..." class="rounded-circle" width="130px" height="130px">
+                </div>
+                <br>
+
+                <br>
+                <p class="card-text"><small class="text-muted">
+                    <cite title="Source Title">Click to show more friends...</cite>
+                  </small></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       {{!-- Round Images  --}}
@@ -90,7 +139,7 @@
             <br>
             <h1 class="logo"><i class="fas fa-beer"></i> Photos!</h1>
             <p class="card-text"><small class="text-muted">
-                <cite title="Source Title">Last updated 30 mins ago...</cite>
+                <cite title="Source Title">Last updated 34 mins ago...</cite>
               </small></p>
             <div class="beer-circles" id="medalla">
               <img src="https://i.pinimg.com/originals/e4/36/27/e4362795026af41483df7d42d104fb53.jpg" alt="..."
@@ -144,68 +193,31 @@
                         <p style="color: black">Review: {{textReview}}</p>
                       </div>
                       {{/if}}
+                       <div>
+                        <a href="" class="facebook"><i class="fab fa-facebook-square"></i></a>
+                      </div>
                     </section>
                     <button data-attr="{{Beer.id}}" class="btn btn-primary delete" style="float:right">Delete</button>
                   </div>
                 </div>
                 {{/each}}
+
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                <p class="card-text"><small class="text-muted">
+                    <cite title="Source Title">Click to show more activities...</cite>
+                  </small></p>
+
               </div>
-              <br>
-              <br>
+
+
+
             </div>
           </div>
         </div>
       </div>
 
 
-      <!-- Friends Cards -->
-      <div>
-        <br>
-        <div class="col-sm-5">
-          <div class="card-4">
-            <div class="card-center">
-              <br>
-              <h1 class="logo"><i class="fas fa-beer"></i> Friends</h1>
-              <br>
-              <div class="beer-circles">
-                <img src="https://avatars1.githubusercontent.com/u/46248532?s=460&v=4" alt="..." class="rounded-circle"
-                  width="130px" height="130px">
-                <img src="https://avatars2.githubusercontent.com/u/44590738?s=460&v=4" alt="..." class="rounded-circle"
-                  width="130px" height="130px">
-                <img
-                  src="https://media.licdn.com/dms/image/C5603AQEcZe517GY7fA/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=DVw5268eq8OKLTaba0mENz-1dFqEMWrnl65dt8XrT28"
-                  alt="..." class="rounded-circle" width="130px" height="130px">
-                <img src="https://avatars2.githubusercontent.com/u/46302313?s=460&v=4" alt="..." class="rounded-circle"
-                  width="130px" height="130px">
-                <img
-                  src="https://media.licdn.com/dms/image/C5603AQHALeFEd9Q9AQ/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=VagFTPTdxp245amhpWXwmSy1q06-trctj4DGqVwrhHI"
-                  alt="..." class="rounded-circle" width="130px" height="130px">
-                <img
-                  src="https://media.licdn.com/dms/image/C4E03AQESw6V_VhoAVg/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=KmGgIBL_5CJs3CLdo6vvN-noBkFalfTxFMwq22KMqsI"
-                  alt="..." class="rounded-circle" width="130px" height="130px">
-                <img
-                  src="https://media.licdn.com/dms/image/C4E03AQFMlfO_BY2R6w/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=kb2PMz03c70l0F9DDMsdPpv0angmtSmi-oG1BGhYvyw"
-                  alt="..." class="rounded-circle" width="130px" height="130px">
-                <img
-                  src="https://media.licdn.com/dms/image/C4E03AQFCRtTUqlsakw/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=IoMkBg_8IEy7Jd7iwmDULNHgdf6mmx0fKX6Jr_aJbO4"
-                  alt="..." class="rounded-circle" width="130px" height="130px">
-              </div>
-              <br>
 
-              <br>
-              <p class="card-text"><small class="text-muted">
-                  <cite title="Source Title">Click for more friends...</cite>
-                </small></p>
-
-            </div>
-          </div>
-        </div>
-      </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

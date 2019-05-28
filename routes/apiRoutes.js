@@ -89,6 +89,23 @@ module.exports = function (app) {
       res.json(data)
     })
   });
+  app.get("/api/trending/", function (req, res) {
+    var queryURL =
+      "https://api.untappd.com/v4/beer/trending?" +
+      "&client_id=" +
+      keys.brewery.key +
+      "&client_secret=" +
+      keys.brewery.secret;
+
+    function untappedAPI(url) {
+      return axios.get(url).then(response => {
+        return response.data
+      })
+    }
+    untappedAPI(queryURL).then(data => {
+      res.json(data)
+    })
+  });
 
 };
 

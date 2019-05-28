@@ -2,6 +2,53 @@
 $(document).ready(function() {
   // Create empty beerObj to use as a global variable
   var beerObj = {};
+  var beerName = "";
+  var beerImg = "";
+  if (window.location.href.indexOf("dashboard") > -1) {} else {
+    var trendingURL = "/api/trending/";
+    $.ajax({
+      url: trendingURL,
+      method: "GET"
+    }).then(function(response) {
+      var beerArray = response.response.macro.items;
+      for (i = 0; i < beerArray.length; i++) {
+        beerName = beerArray[i].beer.beer_name;
+        var beerBrewery = beerArray[i].brewery.brewery_name;
+        var beerBreweryLink = beerArray[i].brewery.contact.url;
+        var beerABV = beerArray[i].beer.beer_abv;
+        var beerStyle = beerArray[i].beer.beer_style;
+        beerImg = beerArray[i].beer.beer_label;
+
+        var beerDiv = $("<div>");
+        beerDiv.addClass("card");
+
+        beerDivHeader = $("<h5>").text(beerName);
+        beerDivHeader.addClass("card-header");
+
+        var beerDivBody = $("<div>");
+        beerDivBody.addClass("card-body");
+
+        var breweryLink = $("<a>").text(beerBrewery);
+        breweryLink.attr("href", beerBreweryLink);
+        breweryLink.attr("target", "_blank");
+
+        var beerDivTextABV = $("<p>").text("ABV: " + beerABV);
+        beerDivTextABV.addClass("beerabv");
+        var beerDivTextStyle = $("<p>").text("Beer Style: " + beerStyle);
+
+        var beerImgTag = $("<img>");
+        beerImgTag.attr("style", "width: 125px; float: left");
+        beerImgTag.attr("src", beerImg);
+        beerDiv.append(beerDivHeader);
+        beerDiv.append(beerDivBody);
+        beerDivBody.append(beerImgTag);
+        beerDivBody.append(breweryLink);
+        beerDivBody.append(beerDivTextABV);
+        beerDivBody.append(beerDivTextStyle);
+        $("#beer-body").append(beerDiv);
+      }
+    });
+  }
 
   //CREATES BEER LIST
   $(document).on("click", "#searchBtn", function(event) {
@@ -16,15 +63,14 @@ $(document).ready(function() {
     }).then(function(response) {
       // Build all of my objects and create the beer cards
       var beerArray = response.response.beers.items;
-      console.log(beerArray);
       for (var i = 0; i < beerArray.length; i++) {
-        var beerName = beerArray[i].beer.beer_name;
+        beerName = beerArray[i].beer.beer_name;
         var beerBrewery = beerArray[i].brewery.brewery_name;
         var beerBreweryLink = beerArray[i].brewery.contact.url;
         var beerABV = beerArray[i].beer.beer_abv;
         var beerIBU = beerArray[i].beer.beer_ibu;
         var beerStyle = beerArray[i].beer.beer_style;
-        var beerImg = beerArray[i].beer.beer_label;
+        beerImg = beerArray[i].beer.beer_label;
         var beerID = beerArray[i].beer.bid;
 
         var beerDiv = $("<div>");
@@ -50,16 +96,13 @@ $(document).ready(function() {
         beerImgTag.attr("src", beerImg);
 
         var beerButton = $("<button>");
-        var beerButton2 = $("<button>");
         beerButton.attr("beername", beerName);
         beerButton.attr("beerabv", beerABV);
         beerButton.attr("beertype", beerStyle);
         beerButton.attr("breweryname", beerBrewery);
         beerButton.attr("beerimg", beerImg);
         beerButton.attr("beerid", beerID);
-        beerButton2.text("Review");
         beerButton.addClass("btn btn-primary rate");
-        beerButton2.addClass("btn btn-primary checkin");
         beerButton.attr("data-toggle", "modal");
         beerButton.attr("data-target", "#exampleModal");
         beerButton.attr("style", "float: right");
@@ -75,10 +118,9 @@ $(document).ready(function() {
         beerDivBody.append(beerDivTextStyle);
         beerDivBody.append(beerButton);
         $("#beer-body").append(beerDiv);
-        $("#beerbutton").replaceWith(beerButton2);
       }
 
-      //CHECK IN 
+      //CHECK IN
       // This is the click on Check in beer, it will get all of the objects i created above and create a beerObj (this does not have the star rating yet!!!)
 
       console.log(username);
@@ -119,6 +161,24 @@ $(document).ready(function() {
     });
   });
 
+  $(document).on("click", ".facebook", function(event) {
+    event.preventDefault();
+    var burpURL = "http://burp.com";
+    shareFacebook(burpURL, beerName, beerImg);
+  });
+
+  function shareFacebook(url, text, image) {
+    open(
+      "https://facebook.com/sharer.php?s=100&p[url]=" +
+        url +
+        "&p[images][0]=" +
+        image +
+        "&p[title]=" +
+        text,
+      "fbshare",
+      "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0"
+    );
+  }
   //STAR rating effect
   $("#stars li")
     .on("mouseover", function() {
