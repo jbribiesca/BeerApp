@@ -6,8 +6,6 @@ body {
   overflow-x: hidden;
 }
 
-
-
 .dashboard{
   background-image: url("https://images.pexels.com/photos/1464825/pexels-photo-1464825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
@@ -17,17 +15,11 @@ body {
 }
 
 .jumbotron {
-
   text-align: center;
   background-color: transparent;
 }
 
-.logo {
-  font-family: 'Pacifico', cursive;
-  color: #f15f22;
-}
-
-.logo2 {
+.logo, .logo2 {
   font-family: 'Pacifico', cursive;
   color: #f15f22;
 }
@@ -52,7 +44,7 @@ body {
 }
 
 .signUpBtn {
-  margin-top: 22px;
+  margin-top: 23px;
 }
 
 .modal-header {
@@ -63,6 +55,10 @@ body {
 
 .btnFix {
   margin-top: 0px;
+}
+
+.signUpInMessage {
+  color: #DC3545;
 }
 
 #welcomeHeader {
@@ -81,9 +77,6 @@ body {
 /* Beer History */
 .card-center {
   background-color: #353b48;
-
-
-
 
 
 }
@@ -126,6 +119,10 @@ body {
   padding: 10px;
 }
 
+.search_input:-webkit-autofill,
+.search_input:-webkit-autofill:hover, 
+.search_input:-webkit-autofill:focus, 
+.search_input:-webkit-autofill:active,
 .search_input {
   padding: 0 2px;
   color: white;
@@ -137,6 +134,8 @@ body {
   caret-color: transparent;
   line-height: 40px;
   transition: width 800s linear;
+  -webkit-box-shadow: 0 0 0 30px #353B48 inset !important;
+  -webkit-text-fill-color: white !important;
 }
 
 .searchBar:hover>.search_input {
@@ -164,6 +163,7 @@ body {
 }
 
 /* End dynamic search style */
+
 .control-label {
   color: white;
 }
@@ -185,7 +185,6 @@ body {
   border-radius: 5px;
   margin-bottom: 10px;
 }
-
 
 /* Rating Star Widgets Style */
 .rating-stars ul {
@@ -220,7 +219,6 @@ body {
 }
 
 
-
 /* Static search bar for dashboard */
 
 .searchBarNav {
@@ -234,15 +232,21 @@ body {
   padding: 5px;
 }
 
+.search_inputNav:-webkit-autofill,
+.search_inputNav:-webkit-autofill:hover, 
+.search_inputNav:-webkit-autofill:focus, 
+.search_inputNav:-webkit-autofill:active,
 .search_inputNav {
   color: white;
   font-size: 19px;
   border: 0;
   outline: 0;
-  background: transparent;
+  background: #343A40;
   width: 350px;
   caret-color: transparent;
   line-height: 40px;
+  -webkit-box-shadow: 0 0 0 30px #343A40 inset !important;
+  -webkit-text-fill-color: white !important;
 }
 
 /* .searchBarNav:hover>.search_iconNav {
