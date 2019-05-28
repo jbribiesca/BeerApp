@@ -66,6 +66,10 @@ body {
   color: #4267B2;
 }
 
+.trendingFix {
+  margin-bottom: 20px;
+}
+
 .signInCentering {
   margin-left: 46px;
   margin-right: 0px;
