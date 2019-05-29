@@ -1,10 +1,20 @@
 body {
   background-image: url("https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 100%;
   background-size: cover;
   background-position: center;
+  
   background-repeat: no-repeat;
   background-color: black;
   overflow-x: hidden;
+}
+
+.align-items-center{
+  justify-content: center;
+}
+
+.nav-link{
+  width: 116px;
 }
 
 #imgJose{
@@ -133,7 +143,14 @@ body {
 .card-center {
   background-color: #353b48;
 
+}
 
+.card-centerDB{
+  background-color: #343A40;
+  border-radius: 5px;
+  border: white;
+  border-width: 2px;
+  border-style: solid;
 }
 
 /* Beer Cards */
@@ -152,7 +169,7 @@ body {
 
 
 .card {
-  margin-top: 10px;
+  margin-top: 5%;
 }
 
 
@@ -223,7 +240,7 @@ body {
   color: white;
 }
 .card-center {
-  background-color: #343a40;
+  background-color: rgba(0,0,0, 0.4);
   border-radius: 5px;
   border: white;
   border-width: 2px;
