@@ -338,6 +338,14 @@ body {
   margin-top: 5px;
 }
 
+
+#profilePic{
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  max-height: 300px;
+}
+
 /* End static search bard for dashboard */
 
 
@@ -346,14 +354,20 @@ body {
 
 @media (max-width: 995px) {
   #profilePic {
-    width: 300px;
+    width: 100%;
+  max-width: 300px;
+  height: auto;
+  max-height: 300px;
   }
 }
 
 @media (max-width: 576px) {
 
   #profilePic {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 300px;
   }
 
   .searchBar:hover>.search_input {
