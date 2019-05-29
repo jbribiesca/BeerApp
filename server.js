@@ -52,8 +52,6 @@ hbs.registerHelper("addStars", function(value) {
   return new hbs.SafeString(accum);
 });
 
-
-
 // Routes
 app.use(function(req, res, next) {
   res.locals.user = req.user;
