@@ -5,17 +5,17 @@ var LocalStrategy = require("passport-local").Strategy;
 var db = require("../models");
 var moment = require("moment");
 
-module.exports = function(user) {
+module.exports = function (user) {
   var User = user;
 
   //serialize
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
 
   // deserialize user
-  passport.deserializeUser(function(id, done) {
-    db.User.findByPk(id).then(function(user) {
+  passport.deserializeUser(function (id, done) {
+    db.User.findByPk(id).then(function (user) {
       if (user) {
         done(null, user.get());
       } else {
@@ -38,8 +38,8 @@ module.exports = function(user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
-      function(req, email, password, done) {
-        var generateHash = function(password) {
+      function (req, email, password, done) {
+        var generateHash = function (password) {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
 
@@ -47,9 +47,9 @@ module.exports = function(user) {
           where: {
             email: email
           }
-        }).then(function(user) {
+        }).then(function (user) {
           if (user) {
-            return done(null, false, 
+            return done(null, false,
               req.flash(
                 'info',
                 "That email is already taken")
@@ -65,33 +65,19 @@ module.exports = function(user) {
               birthday: req.body.birthday
             };
 
-//             // console.log(data);
-
-//             //check age -- 21 and up *******************
-    
-
-//             User.create(data).then(function(newUser, created) {
-//               if (!newUser) {
-//                 return done(null, false);
-//               }
-//               if (newUser) {
-//                 return done(null, newUser);
-//               }
-//             });
-
             //------------Age Verification-----------------
-            var birthday = moment("birthday", "DD.MM.YYYY"),
+            var birthday = moment(req.body.birthday, "DD.MM.YYYY"),
               age = moment().diff(birthday, "years");
             console.log(age);
             if (age <= 20) {
               // ("You are not old enough");
-              return done(null, false, 
+              return done(null, false,
                 req.flash(
                   'info',
                   "You are not old enough")
               );
             } else {
-              User.create(data).then(function(newUser, created) {
+              User.create(data).then(function (newUser, created) {
                 if (!newUser) {
                   return done(null, false);
                 }
@@ -106,7 +92,7 @@ module.exports = function(user) {
     )
   );
 
-  
+
   //LOCAL SIGNIN
   passport.use(
     "local-signin",
@@ -119,10 +105,10 @@ module.exports = function(user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
-      function(req, email, password, done) {
+      function (req, email, password, done) {
         var User = user;
 
-        var isValidPassword = function(userpass, password) {
+        var isValidPassword = function (userpass, password) {
           return bCrypt.compareSync(password, userpass);
         };
 
@@ -131,34 +117,34 @@ module.exports = function(user) {
             email: email
           }
         })
-          .then(function(user) {
+          .then(function (user) {
             if (!user) {
-              return done(null, false, 
+              return done(null, false,
                 req.flash(
-                'info',
-                "Email does not exist")
+                  'info',
+                  "Email does not exist")
               );
             }
 
             if (!isValidPassword(user.password, password)) {
-              return done(null, false, 
+              return done(null, false,
                 req.flash(
                   'info',
                   "Incorrect password.")
-                );
+              );
             }
 
             var userinfo = user.get();
             return done(null, userinfo);
           })
-          .catch(function(err) {
+          .catch(function (err) {
             console.log("Error:", err);
 
-            return done(null, false, 
+            return done(null, false,
               req.flash(
                 'info',
                 "Something went wrong with your Signin")
-              );
+            );
           });
       }
     )
