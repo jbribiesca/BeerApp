@@ -1,7 +1,7 @@
 # BeerApp
 
 - - -
-##### Tot the [Burp! Beer App](https://burp-beer-app.herokuapp.com/)
+##### To the [Burp! Beer App](https://burp-beer-app.herokuapp.com/)
 
 - - -
 
