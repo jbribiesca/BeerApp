@@ -66,7 +66,7 @@ module.exports = function (user) {
             };
 
             //------------Age Verification-----------------
-            var birthday = moment(req.body.birthday, "DD.MM.YYYY"),
+            var birthday = moment(req.body.birthday, "YYYY.MM.DD"),
               age = moment().diff(birthday, "years");
             console.log(age);
             if (age <= 20) {
